@@ -65,6 +65,22 @@ function Home() {
           </div>
         </div>
       </section>
+      {/**start-apply Section */}
+      <section class="start-application">
+        <div class="start-content">
+          <h1>Start Your Visa Application Today</h1>
+          <p>
+            Experience a seamless and secure visa application process tailored
+            just for you
+          </p>
+          <button class="apply-btn">Apply Now</button>
+          <button class="learn-btn">Learn More</button>
+        </div>
+      </section>
+      <section class="contact">
+        <div class="contact-content"></div>
+        <div class="map"></div>
+      </section>
     </div>
   );
 }
