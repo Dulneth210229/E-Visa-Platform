@@ -8,3 +8,14 @@
   /* font-weight: 500; */
   font-style: normal;
 }
+
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #4338ca;
+  --text-color: #1f2937;
+  --gradient-start: #4f46e5;
+  --gradient-end: #7c3aed;
+  --light-color: #f3f4f6;
+}
+
+/*Header styling*/
