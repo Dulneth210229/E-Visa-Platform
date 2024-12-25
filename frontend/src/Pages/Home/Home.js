@@ -24,15 +24,17 @@ function Home() {
       {/**About Section */}
       <section class="about">
         <div class="about-content">
-          <div class="about-text">
-            <h1>
-              Experience Seamless Visa Applications with Our Innovative E-Visa
-              Solution
-            </h1>
+          <div class="about-grid">
+            <div class="about-text">
+              <h1>
+                Experience Seamless Visa Applications
+                <br /> with Our Innovative E-Visa Solution
+              </h1>
+            </div>
             <div class="about-card-container">
               {/**Card 1 */}
               <div class="about-card">
-                <i class="fa fa-plane"></i>
+                <i class="fa-solid fa-plane-circle-check"></i>
                 <h3>Your Visa Journey Made Easy with Dark Horse</h3>
                 <p>
                   Our platform ensures secure uploads, real-time tracking, and
@@ -42,7 +44,7 @@ function Home() {
               </div>
               {/**Card 2 */}
               <div class="about-card">
-                <i class="fa fa-compass"></i>
+                <i class="fa-regular fa-compass"></i>
                 <h3>
                   Track Your Application Status Anytime, Anywhere with Real-Time
                   Updates
@@ -55,7 +57,7 @@ function Home() {
               </div>
               {/**Card 3 */}
               <div class="about-card">
-                <i class="fa fa-globe"></i>
+                <i class="fa-solid fa-earth-asia"></i>
                 <h3>Choose From Various Visa Types Tailored to Your Needs</h3>
                 <p>
                   Select the visa that fits your travel plans with ease and
