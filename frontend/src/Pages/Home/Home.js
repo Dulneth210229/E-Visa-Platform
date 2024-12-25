@@ -12,12 +12,14 @@ function Home() {
           <h1>Start Your E-Visa Application Today!</h1>
           <p>
             Embark on your journey with ease using our streamlined E-Visa
-            application system. Enjoy secure uploads, real-time tracking, and a
-            variety of visa options tailored to your needs.
+            application system. <br />
+            Enjoy secure uploads, real-time tracking, and a variety of visa
+            options tailored to your needs.
           </p>
+
+          <button class="apply-btn">Apply Now</button>
+          <button class="learn-btn">Learn More</button>
         </div>
-        <button class="apply-btn">Apply Now</button>
-        <button class="learn-btn">Learn More</button>
       </header>
       {/**About Section */}
       <section class="about">
@@ -77,10 +79,114 @@ function Home() {
           <button class="learn-btn">Learn More</button>
         </div>
       </section>
+      {/*Contact Us*/}
       <section class="contact">
-        <div class="contact-content"></div>
+        <div class="contact-content">
+          <div class="contact-head">
+            <h1>Contact Us</h1>
+            <p>We're here to assist you with any inquiries</p>
+          </div>
+          <div class="contact-email">
+            <i class="fa fa-envelope"></i>
+            <h3>Email</h3>
+            <p>support@darkhose.com</p>
+          </div>
+          <div class="contact-phone">
+            <i class="fa fa-phone"></i>
+            <h3>Phone</h3>
+            <p>+1 234 567 890</p>
+          </div>
+          <div class="contact-address">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <h3>Address</h3>
+            <p>123 Main Street, New York, NY 10001</p>
+          </div>
+        </div>
         <div class="map"></div>
       </section>
+      {/*FAQ*/}
+      <section class="faq">
+        <div class="faq-content">
+          <div class="faq-head">
+            <h1>FAQs</h1>
+            <p>
+              Find answers to your questions about the visa application process
+              below
+            </p>
+            {/**FAQ Card 1 */}
+            <div class="faq-card">
+              <h3>What is an E-Visa?</h3>
+              <p>
+                An E-Visa is an electronic visa that allows travelers to apply
+                for a visa online. It simplifies the application process and
+                eliminates the need for physical paperwork. E-Visas are
+                typically processed faster than traditional visas.
+              </p>
+            </div>
+            {/**FAQ Card 2 */}
+            <div class="faq-card">
+              <h3>How do I apply?</h3>
+              <p>
+                To apply for an E-Visa, visit our application page and fill out
+                the required information. You'll need to upload necessary
+                documents and select your visa type. Once submitted, you can
+                track your application status in real-time.
+              </p>
+            </div>
+            {/**FAQ Card 3 */}
+            <div class="faq-card">
+              <h3>How do I apply?</h3>
+              <p>
+                To apply for an E-Visa, visit our application page and fill out
+                the required information. You'll need to upload necessary
+                documents and select your visa type. Once submitted, you can
+                track your application status in real-time.
+              </p>
+            </div>
+            {/**FAQ Card 4 */}
+            <div class="faq-card">
+              <h3>What documents are needed?</h3>
+              <p>
+                The required documents vary by visa type but generally include a
+                valid passport, a recent photo, and any additional supporting
+                documents. Ensure all documents are clear and legible for a
+                smooth application process. Check our guidelines for specific
+                requirements based on your visa type.
+              </p>
+            </div>
+            {/**FAQ Card 5 */}
+            <div class="faq-card">
+              <h3>How long does it take?</h3>
+              <p>
+                Processing times for E-Visas can vary depending on the visa type
+                and application volume. Generally, you can expect a decision
+                within a few business days. For urgent applications, consider
+                our expedited processing options.
+              </p>
+            </div>
+            <div class="faq-question">
+              <h2>Still have question?</h2>
+              <p>Reach out to our support team for assistance.</p>
+              <button class="home-contact-btn">Contact</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/**Footer */}
+      <footer class="footer">
+        <p>&copy; 2025 Dark Horse</p>
+        <div class="social-links">
+          <a href="">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
