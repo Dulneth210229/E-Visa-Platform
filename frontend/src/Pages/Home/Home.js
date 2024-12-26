@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./Home.css";
 import Nav from "../../Components/Navigation/Nav";
 import map from "./images/map.jpg";
+import Footer from "../../Components/Footer/Footer";
 
 function Home() {
   useEffect(() => {}, []);
@@ -190,20 +191,7 @@ function Home() {
         </div>
       </section>
       {/**Footer */}
-      <footer class="footer">
-        <p>&copy; 2025 Dark Horse. All rights reserved</p>
-        <div class="social-links">
-          <a href="">
-            <i class="fa-brands fa-facebook"></i>
-          </a>
-          <a href="">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="">
-            <i class="fab fa-twitter"></i>
-          </a>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
