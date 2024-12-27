@@ -5,59 +5,59 @@ const Schema = mongoose.Schema;
 const VisaSchema = new Schema({
   firstName: {
     type: String,
-    required: true,
+    // required: true,
   },
   lastName: {
     type: String,
-    required: true,
+    // required: true,
   },
   DOB: {
     type: Date,
-    required: true,
+    // required: true,
   },
   email: {
     type: String,
-    required: true,
+    // required: true,
   },
   phoneNumber: {
     type: String,
-    required: true,
+    // required: true,
   },
   country: {
     type: String,
-    required: true,
+    // required: true,
   },
   address: {
     type: String,
-    required: true,
+    // required: true,
   },
   postalCode: {
     type: String,
-    required: true,
+    // required: true,
   },
   visaType: {
     type: String,
-    required: true,
+    // required: true,
   },
   visaDuration: {
     type: String,
-    required: true,
+    // required: true,
   },
   purpose: {
     type: String,
-    required: true,
+    // required: true,
   },
   passportCopy: {
     type: Buffer,
-    required: true,
+    // required: true,
   },
   birthCertificate: {
     type: Buffer,
-    required: true,
+    // required: true,
   },
   policeCertificate: {
     type: Buffer,
-    required: true,
+    // required: true,
   },
 });
 

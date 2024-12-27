@@ -65,7 +65,7 @@ const addVisa = async (req, res, next) => {
     return res.status(404).json({ message: "Visa not found" });
   }
   // Display all visas
-  return res.status(200).jason({ visa });
+  return res.status(200).json({ visa });
 };
 
 //Get visa by Id

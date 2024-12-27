@@ -4,12 +4,16 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
+//getting start insert the routes
+const visaRouter = require("./Routes/VisaRoutes");
+
 // Create an Express application
 const app = express();
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+app.use("/api/visa", visaRouter);
 
 // MongoDB Connection using .env file
 const mongoURI = process.env.MONGO_URI; // Fetch the MongoDB URI from .env
