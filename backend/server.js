@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 //getting start insert the routes
 const visaRouter = require("./Routes/VisaRoutes");
@@ -13,6 +14,11 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+
+// Serve static files (uploaded images, PDFs, etc.)
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+//Route handling
 app.use("/api/visa", visaRouter);
 
 // MongoDB Connection using .env file

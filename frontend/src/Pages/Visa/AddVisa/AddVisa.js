@@ -49,12 +49,7 @@ function AddVisa() {
     }
     if (
       currentSection === 2 &&
-      (!formData.visaType ||
-        !formData.visaDuration ||
-        !formData.purpose ||
-        !formData.passportCopy ||
-        !formData.birthCertificate ||
-        !formData.policeCertificate)
+      (!formData.visaType || !formData.visaDuration || !formData.purpose)
     ) {
       alert("Please fill all required fields in this section.");
       return;
@@ -74,9 +69,13 @@ function AddVisa() {
     });
 
     try {
-      const response = await axios.post("/api/visa", formDataObj, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      const response = await axios.post(
+        "http://Localhost:5000/api/visa",
+        formDataObj,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
       alert("Visa details submitted successfully!");
       console.log(response.data);
     } catch (error) {
@@ -258,8 +257,7 @@ function AddVisa() {
                       id="passport"
                       name="passportCopy"
                       accept=".pdf,.jpg,.jpeg,.png"
-                      value={formData.passportCopy}
-                      onChange={handleInputChange}
+                      // onChange={handleInputChange}
                       required
                     />
                   </div>
@@ -272,8 +270,7 @@ function AddVisa() {
                       id="birth"
                       name="birthCertificate"
                       accept=".pdf,.jpg,.jpeg,.png"
-                      value={formData.birthCertificate}
-                      onChange={handleInputChange}
+                      // onChange={handleInputChange}
                       required
                     />
                   </div>
@@ -283,8 +280,7 @@ function AddVisa() {
                       type="file"
                       id="police"
                       name="policeCertificate"
-                      value={formData.policeCertificate}
-                      onChange={handleInputChange}
+                      // onChange={handleInputChange}
                       accept=".pdf,.jpg,.jpeg,.png"
                     />
                   </div>
@@ -297,7 +293,7 @@ function AddVisa() {
                   >
                     Previous
                   </button>
-                  <button type="button" class="submit">
+                  <button type="submit" class="submit">
                     Submit
                   </button>
                 </div>

@@ -1,4 +1,5 @@
 const Visa = require("../Model/VisaModel");
+const path = require("path");
 
 //creating a function to get details
 //display all visas
@@ -20,7 +21,6 @@ const getVisa = async (req, res, next) => {
 
 //insert visa details
 const addVisa = async (req, res, next) => {
-  //get visa details
   const {
     firstName,
     lastName,
@@ -33,10 +33,11 @@ const addVisa = async (req, res, next) => {
     visaType,
     visaDuration,
     purpose,
-    passportCopy,
-    birthCertificate,
-    policeCertificate,
   } = req.body;
+
+  const passportCopy = req.files?.passportCopy?.[0]?.path || "";
+  const birthCertificate = req.files?.birthCertificate?.[0]?.path || "";
+  const policeCertificate = req.files?.policeCertificate?.[0]?.path || "";
 
   let visa;
   try {
@@ -59,12 +60,9 @@ const addVisa = async (req, res, next) => {
     await visa.save();
   } catch (err) {
     console.log(err);
+    return res.status(400).json({ message: "Unable to add visa details" });
   }
 
-  if (!visa) {
-    return res.status(404).json({ message: "Visa not found" });
-  }
-  // Display all visas
   return res.status(200).json({ visa });
 };
 
@@ -86,6 +84,7 @@ const getVisaById = async (req, res, next) => {
 };
 
 //update visa details
+// Update Visa details with file upload
 const updateVisa = async (req, res, next) => {
   const visaId = req.params.id;
   const {
@@ -100,10 +99,11 @@ const updateVisa = async (req, res, next) => {
     visaType,
     visaDuration,
     purpose,
-    passportCopy,
-    birthCertificate,
-    policeCertificate,
   } = req.body;
+
+  const passportCopy = req.files?.passportCopy?.[0]?.path || "";
+  const birthCertificate = req.files?.birthCertificate?.[0]?.path || "";
+  const policeCertificate = req.files?.policeCertificate?.[0]?.path || "";
 
   let visa;
   try {
@@ -123,18 +123,14 @@ const updateVisa = async (req, res, next) => {
       birthCertificate,
       policeCertificate,
     });
-    visa = await visa.save();
+    await visa.save();
   } catch (err) {
     console.log(err);
+    return res.status(500).json({ message: "Unable to update visa details" });
   }
-  //not available visa
-  if (!visa) {
-    return res.status(404).json({ message: "Unable to update visa" });
-  }
-  //display visa by id
+
   return res.status(200).json({ visa });
 };
-
 //Delete visa
 const deleteVisa = async (req, res, next) => {
   const visaId = req.params.id;

@@ -1,17 +1,42 @@
 const express = require("express");
-const visaRouter = express.Router();
-
-//Insert the model
-const Visa = require("../Model/VisaModel");
-//Insert the controller
+const multer = require("multer");
+const path = require("path");
 const VisaController = require("../Controllers/VisaController");
 
-//create the route paths
+const visaRouter = express.Router();
+
+// Set up Multer for file uploads
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/");
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
+const upload = multer({ storage });
+
+// Define routes with file upload
 visaRouter.get("/", VisaController.getVisa);
-visaRouter.post("/", VisaController.addVisa);
+visaRouter.post(
+  "/",
+  upload.fields([
+    { name: "passportCopy", maxCount: 1 },
+    { name: "birthCertificate", maxCount: 1 },
+    { name: "policeCertificate", maxCount: 1 },
+  ]),
+  VisaController.addVisa
+);
 visaRouter.get("/:id", VisaController.getVisaById);
-visaRouter.put("/:id", VisaController.updateVisa);
+visaRouter.put(
+  "/:id",
+  upload.fields([
+    { name: "passportCopy", maxCount: 1 },
+    { name: "birthCertificate", maxCount: 1 },
+    { name: "policeCertificate", maxCount: 1 },
+  ]),
+  VisaController.updateVisa
+);
 visaRouter.delete("/:id", VisaController.deleteVisa);
 
-//export the router
 module.exports = visaRouter;
