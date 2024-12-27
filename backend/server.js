@@ -16,7 +16,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Serve static files (uploaded images, PDFs, etc.)
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("./uploads", express.static(path.join(__dirname, "uploads")));
 
 //Route handling
 app.use("/api/visa", visaRouter);
