@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", serif;
+  /* font-weight: 500; */
+  font-style: normal;
+}
+.addVisa-body {
+  background-color: var(--light-color);
+}
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #4338ca;
+  --text-color: #1f2937;
+  --gradient-start: #4680e5;
+  --gradient-end: #403aed;
+  --light-color: #f3f4f6;
+}
+
+/*add-visa-heading section*/
+.add-visa-heading {
+  padding: 8rem 1rem 1rem 1rem;
+}
+.add-visa-heading div {
+  max-width: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 auto;
+}
+/*form section*/
+.add-visa-form {
+  max-width: 100%;
+  padding: 1rem;
+}
+.add-visa-form form {
+  max-width: 800px;
+  margin: auto;
+  background-color: white;
+}
