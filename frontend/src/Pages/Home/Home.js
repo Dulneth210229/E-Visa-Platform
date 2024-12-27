@@ -124,7 +124,7 @@ function Home() {
           <div class="faq-grid">
             <div class="faq-head">
               <h1>FAQs</h1>
-              <p>
+              <p class="faq-p">
                 Find answers to your questions about the visa application
                 process below
               </p>
