@@ -33,6 +33,9 @@ const addVisa = async (req, res, next) => {
     visaType,
     visaDuration,
     purpose,
+    paymentAmount,
+    paymentStatus,
+    visaStatus,
   } = req.body;
 
   const passportCopy = req.files?.passportCopy?.[0]?.path || "";
@@ -53,6 +56,9 @@ const addVisa = async (req, res, next) => {
       visaType,
       visaDuration,
       purpose,
+      paymentAmount,
+      paymentStatus,
+      visaStatus,
       passportCopy,
       birthCertificate,
       policeCertificate,
@@ -99,6 +105,9 @@ const updateVisa = async (req, res, next) => {
     visaType,
     visaDuration,
     purpose,
+    paymentAmount,
+    paymentStatus,
+    visaStatus,
   } = req.body;
 
   const passportCopy = req.files?.passportCopy?.[0]?.path || "";
@@ -119,6 +128,9 @@ const updateVisa = async (req, res, next) => {
       visaType,
       visaDuration,
       purpose,
+      paymentAmount,
+      paymentStatus,
+      visaStatus,
       passportCopy,
       birthCertificate,
       policeCertificate,

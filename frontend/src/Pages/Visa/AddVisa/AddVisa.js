@@ -19,6 +19,9 @@ function AddVisa() {
     visaType: "",
     visaDuration: "",
     purpose: "",
+    paymentAmount: "",
+    paymentStatus: "",
+    visaStatus: "",
     passportCopy: null,
     birthCertificate: null,
     policeCertificate: null,
@@ -31,29 +34,37 @@ function AddVisa() {
     });
   };
 
+  const calculateVisaFee = () => {
+    const duration = parseInt(formData.visaDuration, 10);
+    if (!isNaN(duration)) {
+      return duration * 10; // $10 per month
+    }
+    return 0; // Default fee if duration is invalid or empty
+  };
+
   const handleNext = () => {
     // Validation logic for the current section
-    if (
-      currentSection === 1 &&
-      (!formData.firstName ||
-        !formData.lastName ||
-        !formData.DOB ||
-        !formData.email ||
-        !formData.phoneNumber ||
-        !formData.country ||
-        !formData.address ||
-        !formData.postalCode)
-    ) {
-      alert("Please fill all required fields in this section.");
-      return;
-    }
-    if (
-      currentSection === 2 &&
-      (!formData.visaType || !formData.visaDuration || !formData.purpose)
-    ) {
-      alert("Please fill all required fields in this section.");
-      return;
-    }
+    // if (
+    //   currentSection === 1 &&
+    //   (!formData.firstName ||
+    //     !formData.lastName ||
+    //     !formData.DOB ||
+    //     !formData.email ||
+    //     !formData.phoneNumber ||
+    //     !formData.country ||
+    //     !formData.address ||
+    //     !formData.postalCode)
+    // ) {
+    //   alert("Please fill all required fields in this section.");
+    //   return;
+    // }
+    // if (
+    //   currentSection === 2 &&
+    //   (!formData.visaType || !formData.visaDuration || !formData.purpose)
+    // ) {
+    //   alert("Please fill all required fields in this section.");
+    //   return;
+    // }
     setCurrentSection(currentSection + 1);
   };
 
@@ -63,6 +74,16 @@ function AddVisa() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Set payment fields before submission
+    const amountToPay = calculateVisaFee();
+    setFormData((prevData) => ({
+      ...prevData,
+      paymentAmount: amountToPay,
+      paymentStatus: "Success",
+      visaStatus: "Pending",
+    }));
+
     const formDataObj = new FormData();
     Object.keys(formData).forEach((key) => {
       formDataObj.append(key, formData[key]);
@@ -229,7 +250,7 @@ function AddVisa() {
                   <div class="visa-duration">
                     <label for="duration">Visa Duration</label>
                     <input
-                      type="text"
+                      type="number"
                       id="duration"
                       name="visaDuration"
                       value={formData.visaDuration}
@@ -293,11 +314,82 @@ function AddVisa() {
                   >
                     Previous
                   </button>
-                  <button type="submit" class="submit">
-                    Submit
+
+                  <button type="button" class="next" onClick={handleNext}>
+                    Next
                   </button>
                 </div>
               </div>
+            </div>
+          )}
+          {currentSection === 3 && (
+            <div class="form-container">
+              <div class="form-section3">
+                <div class="payment-header">
+                  <h2>Make Your Payment Here</h2>
+                  <h3>Amount to Pay: ${calculateVisaFee()}</h3>
+                </div>
+                <div class="card-details">
+                  <div class="card-name">
+                    <label for="cardName">Cardholder Name</label>
+                    <input
+                      type="text"
+                      id="cardName"
+                      name="cardName"
+                      placeholder="John Doe"
+                      required
+                    />
+                    <div class="card-number">
+                      <label for="cardNumber">Card Number</label>
+                      <input
+                        type="text"
+                        id="cardNumber"
+                        name="cardNumber"
+                        placeholder="1234 5678 9012 3456"
+                        required
+                        maxlength="19"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="expiry-cvv">
+                  <div class="expiry">
+                    <label for="expiryDate">Expiry Date</label>
+                    <input
+                      type="text"
+                      id="expiryDate"
+                      name="expiryDate"
+                      placeholder="MM/YY"
+                      required
+                      maxlength="5"
+                    />
+                  </div>
+                  <div class="cvv">
+                    <label for="cvv">CVV</label>
+                    <input
+                      type="password"
+                      id="cvv"
+                      name="cvv"
+                      placeholder="123"
+                      required
+                      maxlength="3"
+                    />
+                  </div>
+                </div>
+                <div class="amount">
+                  <label for="amount">Amount</label>
+                  <input
+                    type="text"
+                    id="amount"
+                    name="paymentAmount"
+                    value={`$${calculateVisaFee()}`}
+                    disabled
+                  />
+                </div>
+              </div>
+              <button type="submit" class="submit">
+                Submit
+              </button>
             </div>
           )}
         </form>

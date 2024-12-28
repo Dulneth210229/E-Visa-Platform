@@ -47,6 +47,18 @@ const VisaSchema = new Schema({
     type: String,
     // required: true,
   },
+  paymentAmount: {
+    type: Number,
+    // required: true,
+  },
+  paymentStatus: {
+    type: String,
+    // required: true,
+  },
+  visaStatus: {
+    type: String,
+    // required: true
+  },
   passportCopy: {
     type: Buffer,
     // required: true,
