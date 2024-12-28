@@ -1,5 +1,6 @@
 import React from "react";
-import { useState } from "react";
+import { useState } from "react"; // Import useState
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import axios from "axios";
 import "./AddVisa.css";
 import Nav from "../../../Components/Navigation/Nav";
@@ -26,6 +27,8 @@ function AddVisa() {
     birthCertificate: null,
     policeCertificate: null,
   });
+  const navigate = useNavigate(); // Initialize the useNavigate hook
+
   const handleInputChange = (e) => {
     const { name, value, files } = e.target;
     setFormData({
@@ -99,6 +102,9 @@ function AddVisa() {
       );
       alert("Visa details submitted successfully!");
       console.log(response.data);
+
+      // Redirect to the relevant page
+      navigate("/"); // Update the path to your relevant page route
     } catch (error) {
       console.error("Error submitting visa details:", error);
     }
