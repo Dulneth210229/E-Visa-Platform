@@ -27,6 +27,7 @@ function AddVisa() {
     birthCertificate: null,
     policeCertificate: null,
   });
+  const [loading, setLoading] = useState(false); // Add loading state
   const navigate = useNavigate(); // Initialize the useNavigate hook
 
   const handleInputChange = (e) => {
@@ -78,6 +79,8 @@ function AddVisa() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setLoading(true); // Show the spinner when submit is clicked
+
     // Set payment fields before submission
     const amountToPay = calculateVisaFee();
     setFormData((prevData) => ({
@@ -104,11 +107,16 @@ function AddVisa() {
       console.log(response.data);
 
       // Redirect to the relevant page
-      navigate("/"); // Update the path to your relevant page route
+      setTimeout(() => {
+        navigate("/"); // Redirect to the home page
+      }, 2000); // Adjust the time (in ms) for how long you want to show the spinner
     } catch (error) {
       console.error("Error submitting visa details:", error);
     }
   };
+
+  // Spinner HTML to be injected
+  const spinner = <span class="loader">Loading</span>;
 
   return (
     <div class="addVisa-body">
@@ -399,6 +407,7 @@ function AddVisa() {
             </div>
           )}
         </form>
+        {loading && spinner} {/* Conditionally render spinner when loading */}
       </section>
       <Footer />
     </div>
