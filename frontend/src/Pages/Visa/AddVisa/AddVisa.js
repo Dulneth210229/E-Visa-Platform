@@ -27,7 +27,7 @@ function AddVisa() {
     birthCertificate: null,
     policeCertificate: null,
   });
-  const [loading, setLoading] = useState(false); // Add loading state
+  const [loading, setLoading] = useState(true); // Add loading state
   const navigate = useNavigate(); // Initialize the useNavigate hook
 
   const handleInputChange = (e) => {
@@ -116,7 +116,7 @@ function AddVisa() {
   };
 
   // Spinner HTML to be injected
-  const spinner = <span class="loader">Loading</span>;
+  const spinner = <span class="loader">Processing...</span>;
 
   return (
     <div class="addVisa-body">
@@ -676,7 +676,7 @@ function AddVisa() {
                     <i class="fa-solid fa-arrow-left"></i> Previous
                   </button>
                   <button type="button" class="next" onClick={handleNext}>
-                    Next <i class="fa-solid fa-arrow-right"></i>
+                    Submit
                   </button>{" "}
                 </div>
               </div>
@@ -687,7 +687,9 @@ function AddVisa() {
               <div class="form-section3">
                 <div class="payment-header">
                   <h2>Make Your Payment Here</h2>
-                  <h3>Amount to Pay: ${calculateVisaFee()}</h3>
+                  <i class="fa-brands fa-cc-visa"></i>
+                  <i class="fa-brands fa-cc-mastercard"></i>
+                  {/* <h3>Amount to Pay: ${calculateVisaFee()}</h3> */}
                 </div>
                 <div class="card-details">
                   <div class="card-name">
@@ -699,20 +701,20 @@ function AddVisa() {
                       placeholder="John Doe"
                       required
                     />
-                    <div class="card-number">
-                      <label for="cardNumber">Card Number</label>
-                      <input
-                        type="text"
-                        id="cardNumber"
-                        name="cardNumber"
-                        placeholder="1234 5678 9012 3456"
-                        required
-                        maxlength="19"
-                      />
-                    </div>
+                  </div>
+                  <div class="card-number">
+                    <label for="cardNumber">Card Number</label>
+                    <input
+                      type="text"
+                      id="cardNumber"
+                      name="cardNumber"
+                      placeholder="1234 5678 9012 3456"
+                      required
+                      maxlength="19"
+                    />
                   </div>
                 </div>
-                <div class="expiry-cvv">
+                <div class="card-details">
                   <div class="expiry">
                     <label for="expiryDate">Expiry Date</label>
                     <input
@@ -746,14 +748,19 @@ function AddVisa() {
                     disabled
                   />
                 </div>
+                <div class="submit-btn">
+                  <button type="submit" class="submit">
+                    Pay Now
+                  </button>
+                </div>
               </div>
-              <button type="submit" class="submit">
-                Submit
-              </button>
+              <div class="loading-spinner-section">
+                {loading && spinner}{" "}
+                {/* Conditionally render spinner when loading */}
+              </div>
             </div>
           )}
         </form>
-        {loading && spinner} {/* Conditionally render spinner when loading */}
       </section>
       <Footer />
     </div>
