@@ -147,10 +147,10 @@ label {
   border: 1px solid var(--text-color);
 }
 
-.form-section1 input::placeholder {
+/* .form-section1 input::placeholder {
   font-size: 0.9rem;
   padding-left: 0.8rem;
-}
+} */
 
 .form-btn button {
   width: 150px;
@@ -261,7 +261,7 @@ label {
   display: flex;
   flex-direction: column;
   max-width: 90%;
-  margin: 0 auto;
+  margin: 0.5rem auto 0 auto;
 }
 
 .form-section3 input {
@@ -292,4 +292,8 @@ label {
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
+}
+/*target-> All input fields*/
+.inputs {
+  padding: 0.5rem;
 }

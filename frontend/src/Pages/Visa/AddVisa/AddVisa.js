@@ -27,7 +27,7 @@ function AddVisa() {
     birthCertificate: null,
     policeCertificate: null,
   });
-  const [loading, setLoading] = useState(true); // Add loading state
+  const [loading, setLoading] = useState(false); // Add loading state
   const navigate = useNavigate(); // Initialize the useNavigate hook
 
   const handleInputChange = (e) => {
@@ -143,6 +143,7 @@ function AddVisa() {
                       type="text"
                       id="first-name"
                       name="firstName"
+                      class="inputs"
                       placeholder="John"
                       value={formData.firstName}
                       onChange={handleInputChange}
@@ -155,6 +156,7 @@ function AddVisa() {
                       type="text"
                       id="last-name"
                       name="lastName"
+                      class="inputs"
                       placeholder="Doe"
                       value={formData.lastName}
                       onChange={handleInputChange}
@@ -169,6 +171,7 @@ function AddVisa() {
                       type="email"
                       id="email"
                       name="email"
+                      class="inputs"
                       placeholder="example@gmail.com"
                       value={formData.email}
                       onChange={handleInputChange}
@@ -181,6 +184,7 @@ function AddVisa() {
                       type="date"
                       id="DOB"
                       name="DOB"
+                      class="inputs"
                       value={formData.DOB}
                       onChange={handleInputChange}
                       required
@@ -194,6 +198,7 @@ function AddVisa() {
                       type="tel"
                       id="phone"
                       name="phoneNumber"
+                      class="inputs"
                       placeholder="+1234567890"
                       value={formData.phoneNumber}
                       onChange={handleInputChange}
@@ -554,6 +559,7 @@ function AddVisa() {
                       type="text"
                       id="address"
                       name="address"
+                      class="inputs"
                       placeholder="123 Main St"
                       value={formData.address}
                       onChange={handleInputChange}
@@ -566,6 +572,7 @@ function AddVisa() {
                       type="text"
                       id="postal"
                       name="postalCode"
+                      class="inputs"
                       placeholder="10345"
                       value={formData.postalCode}
                       onChange={handleInputChange}
@@ -611,6 +618,7 @@ function AddVisa() {
                       type="number"
                       id="duration"
                       name="visaDuration"
+                      class="inputs"
                       value={formData.visaDuration}
                       onChange={handleInputChange}
                       required
@@ -624,6 +632,7 @@ function AddVisa() {
                       type="text"
                       id="purpose"
                       name="purpose"
+                      class="inputs"
                       value={formData.purpose}
                       onChange={handleInputChange}
                       required
@@ -698,6 +707,7 @@ function AddVisa() {
                       type="text"
                       id="cardName"
                       name="cardName"
+                      class="inputs"
                       placeholder="John Doe"
                       required
                     />
@@ -708,6 +718,7 @@ function AddVisa() {
                       type="text"
                       id="cardNumber"
                       name="cardNumber"
+                      class="inputs"
                       placeholder="1234 5678 9012 3456"
                       required
                       maxlength="19"
@@ -721,6 +732,7 @@ function AddVisa() {
                       type="text"
                       id="expiryDate"
                       name="expiryDate"
+                      class="inputs"
                       placeholder="MM/YY"
                       required
                       maxlength="5"
@@ -732,6 +744,7 @@ function AddVisa() {
                       type="password"
                       id="cvv"
                       name="cvv"
+                      class="inputs"
                       placeholder="123"
                       required
                       maxlength="3"
@@ -744,6 +757,7 @@ function AddVisa() {
                     type="text"
                     id="amount"
                     name="paymentAmount"
+                    class="inputs"
                     value={`$${calculateVisaFee()}`}
                     disabled
                   />
