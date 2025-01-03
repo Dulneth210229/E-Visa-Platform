@@ -54,7 +54,7 @@
 
 /*add-visa-heading section*/
 .add-visa-heading {
-  padding: 8rem 1rem 1rem 1rem;
+  padding: 5.5rem 1rem 1rem 1rem;
 }
 .add-visa-heading div {
   max-width: fit-content;
@@ -69,55 +69,92 @@
   padding: 1rem;
 }
 .add-visa-form form {
-  max-width: 900px;
-  margin: auto;
+  max-width: 850px;
+  margin: 0 auto 1rem auto;
   background-color: white;
+  border-radius: 0.8rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .form-container {
   max-width: 700px;
-  background-color: yellow;
+  /* background-color: yellow; */
   margin: 0 auto;
   padding: 1rem;
-  /* height: 500px; */
+  min-height: 500px;
 }
+/*form-section1-> styling*/
+
 .form-section1 {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
 .section1-header {
-  display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0 auto 0.5rem auto;
+  text-align: center;
+}
+.section1-header h4 {
+  color: #4e5256;
 }
 .form-name {
   /* max-width: 500px; */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 1rem;
 }
 
 .form-email-DOB {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 1rem;
 }
 .form-phone-country {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 1rem;
 }
 .form-address-postal {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 1rem;
 }
 .form-btn {
   display: flex;
   justify-content: center;
+  margin-top: 1rem;
 }
 label {
   display: block;
+}
+.form-section1 input,
+select {
+  width: 310px;
+  border-radius: 0.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--text-color);
+}
+
+.form-section1 input::placeholder {
+  font-size: 0.9rem;
+  padding-left: 0.8rem;
+}
+
+.form-btn button {
+  width: 150px;
+  height: 40px;
+  border-radius: 0.5rem;
+  background-color: var(--gradient-start);
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  margin: 1rem auto 0.5rem auto;
 }
