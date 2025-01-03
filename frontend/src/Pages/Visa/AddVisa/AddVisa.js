@@ -585,9 +585,10 @@ function AddVisa() {
             <div class="form-container">
               <div class="form-section2">
                 <div class="section2-header">
-                  <h2>Personal Documents</h2>
+                  <h2>Visa Application</h2>
+                  <h4>Personal Documents</h4>
                 </div>
-                <div class="form-visa">
+                <div class="section2-visa">
                   <div class="visa-Type">
                     <label for="first-name">Visa Type</label>
                     <select
@@ -616,7 +617,7 @@ function AddVisa() {
                     />
                   </div>
                 </div>
-                <div class="visa-purpose-passport">
+                <div class="section2-visa">
                   <div class="purpose">
                     <label for="purpose">Purpose</label>
                     <input
@@ -633,6 +634,7 @@ function AddVisa() {
                     <input
                       type="file"
                       id="passport"
+                      class="file-input"
                       name="passportCopy"
                       accept=".pdf,.jpg,.jpeg,.png"
                       // onChange={handleInputChange}
@@ -640,12 +642,13 @@ function AddVisa() {
                     />
                   </div>
                 </div>
-                <div class="visa-birth-police">
+                <div class="section2-visa">
                   <div class="birth">
                     <label for="birth">Birth Certificate</label>
                     <input
                       type="file"
                       id="birth"
+                      class="file-input"
                       name="birthCertificate"
                       accept=".pdf,.jpg,.jpeg,.png"
                       // onChange={handleInputChange}
@@ -657,24 +660,24 @@ function AddVisa() {
                     <input
                       type="file"
                       id="police"
+                      class="file-input"
                       name="policeCertificate"
                       // onChange={handleInputChange}
                       accept=".pdf,.jpg,.jpeg,.png"
                     />
                   </div>
                 </div>
-                <div class="form-btn">
+                <div class="form-btn2">
                   <button
                     type="button"
                     class="previous"
                     onClick={handlePrevious}
                   >
-                    Previous
+                    <i class="fa-solid fa-arrow-left"></i> Previous
                   </button>
-
                   <button type="button" class="next" onClick={handleNext}>
-                    Next
-                  </button>
+                    Next <i class="fa-solid fa-arrow-right"></i>
+                  </button>{" "}
                 </div>
               </div>
             </div>

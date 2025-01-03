@@ -133,8 +133,14 @@
 label {
   display: block;
 }
-.form-section1 input,
-select {
+.form-section1 input {
+  width: 310px;
+  border-radius: 0.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--text-color);
+}
+
+.form-section1 select {
   width: 310px;
   border-radius: 0.5rem;
   height: 2.5rem;
@@ -147,6 +153,78 @@ select {
 }
 
 .form-btn button {
+  width: 150px;
+  height: 40px;
+  border-radius: 0.5rem;
+  background-color: var(--gradient-start);
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  margin: 1rem auto 0.5rem auto;
+}
+/*Section2 styling*/
+.form-section2 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.section2-header {
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.5rem auto;
+  text-align: center;
+}
+.section2-header h4 {
+  color: #4e5256;
+}
+.section2-visa {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.form-section2 input {
+  width: 310px;
+  border-radius: 0.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--text-color);
+}
+
+.form-section2 select {
+  width: 310px;
+  border-radius: 0.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--text-color);
+}
+
+.form-section2 input::placeholder {
+  font-size: 0.9rem;
+  padding-left: 0.8rem;
+}
+
+.file-input::file-selector-button {
+  padding: 0.5rem 1rem; /* 8px 16px */
+  border: none;
+  background-color: #8c8c8c;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 0.3125rem; /* 5px */
+  cursor: pointer;
+  height: 2.5rem;
+}
+
+/* .file-input::file-selector-button:hover {
+  background-color: #45a049;
+} */
+.form-btn2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.form-btn2 button {
   width: 150px;
   height: 40px;
   border-radius: 0.5rem;
