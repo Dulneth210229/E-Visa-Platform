@@ -69,7 +69,55 @@
   padding: 1rem;
 }
 .add-visa-form form {
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
   background-color: white;
+}
+
+.form-container {
+  max-width: 700px;
+  background-color: yellow;
+  margin: 0 auto;
+  padding: 1rem;
+  /* height: 500px; */
+}
+.form-section1 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.section1-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.form-name {
+  /* max-width: 500px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-email-DOB {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.form-phone-country {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.form-address-postal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.form-btn {
+  display: flex;
+  justify-content: center;
+}
+label {
+  display: block;
 }

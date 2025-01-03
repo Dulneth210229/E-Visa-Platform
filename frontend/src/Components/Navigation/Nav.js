@@ -16,7 +16,7 @@ function Nav() {
             <a href="/">
               <i className="fas fa-home"></i> <span>Home</span>
             </a>
-            <a href="/">
+            <a href="/add-visa">
               <i className="fas fa-paper-plane"></i>Apply Now
             </a>
             <a href="/">
