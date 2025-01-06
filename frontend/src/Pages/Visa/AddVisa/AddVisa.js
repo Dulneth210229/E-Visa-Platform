@@ -133,27 +133,27 @@ function AddVisa() {
 
   const handleNext = () => {
     //Validation logic for the current section
-    // if (
-    //   currentSection === 1 &&
-    //   (!formData.firstName ||
-    //     !formData.lastName ||
-    //     !formData.DOB ||
-    //     !formData.email ||
-    //     !formData.phoneNumber ||
-    //     !formData.country ||
-    //     !formData.address ||
-    //     !formData.postalCode)
-    // ) {
-    //   alert("Please fill all required fields in this section.");
-    //   return;
-    // }
-    // if (
-    //   currentSection === 2 &&
-    //   (!formData.visaType || !formData.visaDuration || !formData.purpose)
-    // ) {
-    //   alert("Please fill all required fields in this section.");
-    //   return;
-    // }
+    if (
+      currentSection === 1 &&
+      (!formData.firstName ||
+        !formData.lastName ||
+        !formData.DOB ||
+        !formData.email ||
+        !formData.phoneNumber ||
+        !formData.country ||
+        !formData.address ||
+        !formData.postalCode)
+    ) {
+      alert("Please fill all required fields in this section.");
+      return;
+    }
+    if (
+      currentSection === 2 &&
+      (!formData.visaType || !formData.visaDuration || !formData.purpose)
+    ) {
+      alert("Please fill all required fields in this section.");
+      return;
+    }
     setCurrentSection(currentSection + 1);
   };
 
