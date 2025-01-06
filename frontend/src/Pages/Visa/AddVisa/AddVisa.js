@@ -30,12 +30,97 @@ function AddVisa() {
   const [loading, setLoading] = useState(false); // Add loading state
   const navigate = useNavigate(); // Initialize the useNavigate hook
 
+  const [errors, setErrors] = useState({});
+
   const handleInputChange = (e) => {
-    const { name, value, files } = e.target;
-    setFormData({
-      ...formData,
-      [name]: files ? files[0] : value,
-    });
+    const { name, value } = e.target;
+    let updatedValue = value;
+    let updatedErrors = { ...errors };
+
+    switch (name) {
+      case "firstName":
+      case "lastName":
+      case "purpose":
+      case "cardName":
+        if (/^[A-Za-z\s]*$/.test(value)) {
+          updatedErrors[name] = "";
+        } else {
+          updatedErrors[name] = "letters only!";
+          updatedValue = formData[name]; // Prevent invalid input
+        }
+        break;
+
+      case "postalCode":
+      case "cvv":
+      case "phoneNumber":
+        if (/^\d*$/.test(value)) {
+          updatedErrors[name] = "";
+        } else {
+          updatedErrors[name] = "numbers only!";
+          updatedValue = formData[name]; // Prevent invalid input
+        }
+        break;
+
+      case "email":
+        if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+          updatedErrors[name] = "";
+        } else {
+          updatedErrors[name] = "Enter a valid email address";
+        }
+        break;
+
+      case "cardNumber":
+        const formattedValue = value
+          .replace(/\s/g, "")
+          .replace(/(\d{4})/g, "$1 ")
+          .trim();
+        if (/^\d{0,16}$/.test(formattedValue.replace(/\s/g, ""))) {
+          updatedValue = formattedValue;
+          updatedErrors[name] = "";
+        } else {
+          updatedErrors[name] = "Incorrect card";
+        }
+        break;
+
+      case "expiryDate":
+        let cleanedExpiry = value.replace(/[^0-9]/g, ""); // Remove non-numeric characters
+        if (cleanedExpiry.length > 4) cleanedExpiry = cleanedExpiry.slice(0, 4); // Limit to MMYY
+        let formattedExpiry = cleanedExpiry;
+        if (cleanedExpiry.length >= 3) {
+          formattedExpiry = `${cleanedExpiry.slice(0, 2)}/${cleanedExpiry.slice(
+            2
+          )}`;
+        }
+
+        // Validate the formatted date
+        if (/^(0[1-9]|1[0-2])\/([0-9]{2})$/.test(formattedExpiry)) {
+          const currentYear = new Date().getFullYear() % 100;
+          const currentMonth = new Date().getMonth() + 1;
+          const [month, year] = formattedExpiry.split("/").map(Number);
+
+          if (
+            year > currentYear ||
+            (year === currentYear && month >= currentMonth)
+          ) {
+            updatedErrors[name] = "";
+          } else {
+            updatedErrors[name] = "Card expiry date cannot be in the past";
+          }
+        } else if (formattedExpiry.length >= 5) {
+          updatedErrors[name] = "Enter a valid expiry date (MM/YY)";
+        } else {
+          updatedErrors[name] = "";
+        }
+
+        updatedValue = formattedExpiry;
+        break;
+
+      default:
+        break;
+    }
+
+    setFormData({ ...formData, [name]: updatedValue });
+    setErrors(updatedErrors);
   };
 
   const calculateVisaFee = () => {
@@ -47,7 +132,7 @@ function AddVisa() {
   };
 
   const handleNext = () => {
-    // Validation logic for the current section
+    //Validation logic for the current section
     // if (
     //   currentSection === 1 &&
     //   (!formData.firstName ||
@@ -138,7 +223,12 @@ function AddVisa() {
                 </div>
                 <div class="form-name">
                   <div class="first-name">
-                    <label for="first-name">First Name</label>
+                    <label for="first-name">
+                      First Name{" "}
+                      {errors.firstName && (
+                        <span className="error">{errors.firstName}</span>
+                      )}
+                    </label>
                     <input
                       type="text"
                       id="first-name"
@@ -151,7 +241,12 @@ function AddVisa() {
                     />
                   </div>
                   <div class="last-name">
-                    <label for="last-name">Last Name</label>
+                    <label for="last-name">
+                      Last Name{" "}
+                      {errors.lastName && (
+                        <span className="error">{errors.lastName}</span>
+                      )}
+                    </label>
                     <input
                       type="text"
                       id="last-name"
@@ -166,7 +261,12 @@ function AddVisa() {
                 </div>
                 <div class="form-email-DOB">
                   <div class="email">
-                    <label for="email">Email</label>
+                    <label for="email">
+                      Email{" "}
+                      {errors.email && (
+                        <span className="error">{errors.email}</span>
+                      )}
+                    </label>
                     <input
                       type="email"
                       id="email"
@@ -193,7 +293,12 @@ function AddVisa() {
                 </div>
                 <div class="form-phone-country">
                   <div class="phone">
-                    <label for="phone">Phone</label>
+                    <label for="phone">
+                      Phone{" "}
+                      {errors.phoneNumber && (
+                        <span className="error">{errors.phoneNumber}</span>
+                      )}
+                    </label>
                     <input
                       type="tel"
                       id="phone"
@@ -202,6 +307,7 @@ function AddVisa() {
                       placeholder="+1234567890"
                       value={formData.phoneNumber}
                       onChange={handleInputChange}
+                      maxlength="10"
                       required
                     />
                   </div>
@@ -542,14 +648,6 @@ function AddVisa() {
                       <option value="Zambia">Zambia</option>
                       <option value="Zimbabwe">Zimbabwe</option>
                     </select>
-                    {/* <input
-                      type="text"
-                      id="country"
-                      name="country"
-                      value={formData.country}
-                      onChange={handleInputChange}
-                      required
-                    /> */}
                   </div>
                 </div>
                 <div class="form-address-postal">
@@ -567,7 +665,12 @@ function AddVisa() {
                     />
                   </div>
                   <div class="postal">
-                    <label for="postal">Postal Code</label>
+                    <label for="postal">
+                      Postal Code{" "}
+                      {errors.postalCode && (
+                        <span className="error">{errors.postalCode}</span>
+                      )}
+                    </label>
                     <input
                       type="text"
                       id="postal"
@@ -627,7 +730,12 @@ function AddVisa() {
                 </div>
                 <div class="section2-visa">
                   <div class="purpose">
-                    <label for="purpose">Purpose</label>
+                    <label for="purpose">
+                      Purpose{" "}
+                      {errors.purpose && (
+                        <span className="error">{errors.purpose}</span>
+                      )}
+                    </label>
                     <input
                       type="text"
                       id="purpose"
@@ -702,18 +810,30 @@ function AddVisa() {
                 </div>
                 <div class="card-details">
                   <div class="card-name">
-                    <label for="cardName">Cardholder Name</label>
+                    <label for="cardName">
+                      Cardholder Name{" "}
+                      {errors.cardName && (
+                        <span className="error">{errors.cardName}</span>
+                      )}
+                    </label>
                     <input
                       type="text"
                       id="cardName"
                       name="cardName"
                       class="inputs"
                       placeholder="John Doe"
+                      value={formData.cardName}
+                      onChange={handleInputChange}
                       required
                     />
                   </div>
                   <div class="card-number">
-                    <label for="cardNumber">Card Number</label>
+                    <label for="cardNumber">
+                      Card Number{" "}
+                      {errors.cardNumber && (
+                        <span className="error">{errors.cardNumber}</span>
+                      )}
+                    </label>
                     <input
                       type="text"
                       id="cardNumber"
@@ -721,31 +841,47 @@ function AddVisa() {
                       class="inputs"
                       placeholder="1234 5678 9012 3456"
                       required
+                      value={formData.cardNumber}
+                      onChange={handleInputChange}
                       maxlength="19"
                     />
                   </div>
                 </div>
                 <div class="card-details">
                   <div class="expiry">
-                    <label for="expiryDate">Expiry Date</label>
+                    <label for="expiryDate">
+                      Expiry Date{" "}
+                      {errors.expiryDate && (
+                        <span className="error">{errors.expiryDate}</span>
+                      )}
+                    </label>
                     <input
                       type="text"
                       id="expiryDate"
                       name="expiryDate"
                       class="inputs"
                       placeholder="MM/YY"
+                      value={formData.expiryDate}
+                      onChange={handleInputChange}
                       required
                       maxlength="5"
                     />
                   </div>
                   <div class="cvv">
-                    <label for="cvv">CVV</label>
+                    <label for="cvv">
+                      CVV{""}
+                      {errors.cvv && (
+                        <span className="error">{errors.cvv}</span>
+                      )}
+                    </label>
                     <input
                       type="password"
                       id="cvv"
                       name="cvv"
                       class="inputs"
                       placeholder="123"
+                      value={formData.cvv}
+                      onChange={handleInputChange}
                       required
                       maxlength="3"
                     />
