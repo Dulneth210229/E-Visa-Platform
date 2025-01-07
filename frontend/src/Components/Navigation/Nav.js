@@ -19,7 +19,7 @@ function Nav() {
             <a href="/add-visa">
               <i className="fas fa-paper-plane"></i>Apply Now
             </a>
-            <a href="/">
+            <a href="/visa-status">
               <i className="fas fa-info-circle"></i>Visa Status
             </a>
             <a href="/">

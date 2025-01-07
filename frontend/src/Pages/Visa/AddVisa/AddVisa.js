@@ -206,11 +206,7 @@ function AddVisa() {
   return (
     <div class="addVisa-body">
       <Nav />
-      <section class="add-visa-heading">
-        <div class="head-text">
-          <h1></h1>
-        </div>
-      </section>
+      <section class="add-visa-heading"></section>
       <section class="add-visa-form">
         <form class="visa-form" onSubmit={handleSubmit}>
           {currentSection === 1 && (
@@ -716,7 +712,7 @@ function AddVisa() {
                     </select>
                   </div>
                   <div class="visa-duration">
-                    <label for="duration">Visa Duration</label>
+                    <label for="duration">Visa Duration (months)</label>
                     <input
                       type="number"
                       id="duration"
