@@ -177,7 +177,16 @@ function AddVisa() {
 
     const formDataObj = new FormData();
     Object.keys(formData).forEach((key) => {
-      formDataObj.append(key, formData[key]);
+      // Use updated values for paymentStatus and visaStatus
+      if (key === "paymentStatus") {
+        formDataObj.append(key, "Success");
+      } else if (key === "visaStatus") {
+        formDataObj.append(key, "Pending");
+      } else if (key === "paymentAmount") {
+        formDataObj.append(key, amountToPay);
+      } else {
+        formDataObj.append(key, formData[key]);
+      }
     });
 
     try {
@@ -206,7 +215,7 @@ function AddVisa() {
   return (
     <div class="addVisa-body">
       <Nav />
-      <section class="add-visa-heading"></section>
+      <section class="space"></section>
       <section class="add-visa-form">
         <form class="visa-form" onSubmit={handleSubmit}>
           {currentSection === 1 && (

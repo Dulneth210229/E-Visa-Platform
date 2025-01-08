@@ -52,17 +52,10 @@
   }
 }
 
-/*add-visa-heading section*/
-.add-visa-heading {
-  padding: 5.5rem 1rem 1rem 1rem;
+.space {
+  padding-top: 7rem;
 }
-.add-visa-heading div {
-  max-width: fit-content;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin: 0 auto;
-}
+
 /*form section*/
 .add-visa-form {
   max-width: 100%;
