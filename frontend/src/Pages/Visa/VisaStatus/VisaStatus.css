@@ -62,10 +62,18 @@ section {
 }
 .data-card-body-text {
   width: 500px;
-  background-color: red;
   margin: 0 auto;
 }
 .data-card-body-text-card {
   display: flex;
-  justify-content: space-between;
+  margin: 1rem auto;
+  border-top-right-radius: 0.2rem;
+  border-bottom-right-radius: 0.2rem;
+  background-color: burlywood;
+}
+.span-border {
+  width: 200px;
+  margin-right: 2rem;
+  border-right: 1px solid var(--text-color);
+  background-color: var(--light-color);
 }

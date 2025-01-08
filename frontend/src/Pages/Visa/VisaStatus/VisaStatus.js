@@ -44,14 +44,21 @@ function VisaStatus() {
       <Nav />
       <div class="status-header-text">
         <h1>Visa Status</h1>
+        {visas.map((visa) => (
+          <div key={visa._id}>
+            <h2>
+              {visa.firstName} {visa.lastName}
+            </h2>
+          </div>
+        ))}
       </div>
       <section class="status-section">
         <div>
           {visas.map((visa) => (
             <div key={visa._id}>
-              <h2>
+              {/* <h2>
                 {visa.firstName} {visa.lastName}
-              </h2>
+              </h2> */}
               <div class="data-container">
                 <div class="data-card-main">
                   <span class="card-span-text">Visa Status</span>{" "}
@@ -66,28 +73,28 @@ function VisaStatus() {
                 <div class="data-card-body">
                   <div class="data-card-body-text">
                     <div class="data-card-body-text-card">
-                      <span>Email</span> <span>:</span>
+                      <span class="span-border">Email </span>
                       <span>{visa.email}</span>
                     </div>
                     <div class="data-card-body-text-card">
-                      <span>Phone</span>
-                      <span>:</span> <span>{visa.phoneNumber}</span>
+                      <span class="span-border">Phone </span>
+                      <span>{visa.phoneNumber}</span>
                     </div>
                     <div class="data-card-body-text-card">
-                      <span>Country</span> <span>:</span>
+                      <span class="span-border">Country </span>
                       <span>{visa.country}</span>
                     </div>
                     <div class="data-card-body-text-card">
-                      <span>Visa Type</span> <span>:</span>
+                      <span class="span-border">Visa Type </span>
                       <span>{visa.visaType}</span>
                     </div>
                     <div class="data-card-body-text-card">
-                      <span>Duration</span> <span>:</span>
+                      <span class="span-border">Duration </span>
                       <span>{visa.visaDuration}</span>
                     </div>
                     <div class="data-card-body-text-card">
-                      <span>Purpose:</span>
-                      <span>:</span>
+                      <span class="span-border">Purpose </span>
+
                       <span>{visa.purpose}</span>
                     </div>
                   </div>
@@ -117,6 +124,7 @@ function VisaStatus() {
           {visas.length === 0 && <div>No visa applications found</div>}
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
