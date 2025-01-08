@@ -53,36 +53,46 @@ function VisaStatus() {
                 {visa.firstName} {visa.lastName}
               </h2>
               <div class="data-container">
-                <div class="data-card">
-                  <span class="card-span">Visa Status:</span> {visa.visaStatus}
+                <div class="data-card-main">
+                  <span class="card-span-text">Visa Status</span>{" "}
+                  <span>{visa.visaStatus}....</span>
                 </div>
-                <div class="data-card">
-                  <span class="card-span">Payment Status:</span>{" "}
-                  {visa.paymentStatus}
+                <div class="data-card-main">
+                  <span class="card-span-text">Payment Status</span>
+                  <span>
+                    {visa.paymentStatus} <i class="fa-solid fa-check"></i>
+                  </span>
                 </div>
-                <div class="data-card">
-                  <div>
-                    <div>
-                      <span>Email:</span> {visa.email}
+                <div class="data-card-body">
+                  <div class="data-card-body-text">
+                    <div class="data-card-body-text-card">
+                      <span>Email</span> <span>:</span>
+                      <span>{visa.email}</span>
                     </div>
-                    <div>
-                      <span>Phone:</span> {visa.phoneNumber}
+                    <div class="data-card-body-text-card">
+                      <span>Phone</span>
+                      <span>:</span> <span>{visa.phoneNumber}</span>
                     </div>
-                    <div>
-                      <span>Country:</span> {visa.country}
+                    <div class="data-card-body-text-card">
+                      <span>Country</span> <span>:</span>
+                      <span>{visa.country}</span>
                     </div>
-                    <div>
-                      <span>Visa Type:</span> {visa.visaType}
+                    <div class="data-card-body-text-card">
+                      <span>Visa Type</span> <span>:</span>
+                      <span>{visa.visaType}</span>
                     </div>
-                    <div>
-                      <span>Duration:</span> {visa.visaDuration}
+                    <div class="data-card-body-text-card">
+                      <span>Duration</span> <span>:</span>
+                      <span>{visa.visaDuration}</span>
                     </div>
-                    <div>
-                      <span>Purpose:</span> {visa.purpose}
+                    <div class="data-card-body-text-card">
+                      <span>Purpose:</span>
+                      <span>:</span>
+                      <span>{visa.purpose}</span>
                     </div>
                   </div>
 
-                  <div>
+                  {/* <div class="data-card-body-text">
                     {visa.passportCopy && (
                       <div>
                         <span>Passport Copy:</span> Uploaded
@@ -98,7 +108,7 @@ function VisaStatus() {
                         <span>Police Certificate:</span> Uploaded
                       </div>
                     )}
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
