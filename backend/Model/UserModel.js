@@ -16,7 +16,7 @@ const UserScheme = new Scheme({
 });
 
 //static method to signup user
-UserScheme.statics.signup = async function (email, password) {
+UserScheme.statics.login = async function (email, password) {
   //validation
   if (!email || !password) {
     throw Error("All field must be filled");
@@ -38,6 +38,25 @@ UserScheme.statics.signup = async function (email, password) {
   const hash = await bcrypt.hash(password, salt);
 
   const user = await this.create({ email, password: hash });
+  return user;
+};
+
+//static login method
+UserScheme.statics.login = async function (email, password) {
+  if (!email || !password) {
+    throw Error("All field must be filled");
+  }
+
+  const user = await this.findOne({ email });
+  if (!user) {
+    throw Error("Incorrect email");
+  }
+
+  const match = await bcrypt.compare(password, user.password);
+
+  if (!match) {
+    throw Error("Incorrect password");
+  }
   return user;
 };
 
