@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Nav from "../../Components/Navigation/Nav";
+import "./Signup.css";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,7 +12,8 @@ const Signup = () => {
   };
 
   return (
-    <div>
+    <div class="body">
+      <Nav />
       <section>
         <div>
           <div class="img-container"></div>

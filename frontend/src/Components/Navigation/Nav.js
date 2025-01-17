@@ -27,10 +27,10 @@ function Nav() {
             </a>
           </div>
           <div class="nav-login">
-            <a href="/">
+            <a href="/login">
               <i className="fas fa-sign-in-alt"></i>Login
             </a>
-            <a href="/">
+            <a href="/signup">
               <i className="fas fa-user-plus"></i>Signup
             </a>
           </div>
