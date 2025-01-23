@@ -103,6 +103,17 @@ button:hover {
   background-color: #0056b3;
 }
 
+.error {
+  color: red;
+  background-color: rgb(255, 221, 221);
+  padding: 0.2rem;
+  border: 1px solid red;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
   section {
