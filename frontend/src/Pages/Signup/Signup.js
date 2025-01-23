@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Nav from "../../Components/Navigation/Nav";
 import "./Signup.css";
+
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +17,6 @@ const Signup = () => {
       <Nav />
       <section>
         <div>
-          <div class="img-container"></div>
           <div class="form-container">
             <form class="signup" onSubmit={handleSubmit}>
               <h2>Sign Up</h2>

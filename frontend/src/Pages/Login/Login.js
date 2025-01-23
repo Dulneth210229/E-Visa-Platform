@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Nav from "../../Components/Navigation/Nav";
+import "./Login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,17 +12,12 @@ const Login = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "#f1f1f1" }}>
+    <div>
       <Nav />
       <section>
         <div>
-          <div class="img-container"></div>
           <div class="form-container">
-            <form
-              class="login"
-              onSubmit={handleSubmit}
-              style={{ backgroundColor: "blue" }}
-            >
+            <form class="login" onSubmit={handleSubmit}>
               <h2>Log in</h2>
               <div class="input-container">
                 <label>Email</label>
