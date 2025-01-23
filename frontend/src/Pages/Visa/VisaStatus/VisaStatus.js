@@ -2,18 +2,24 @@ import React, { useState, useEffect } from "react";
 import Nav from "../../../Components/Navigation/Nav";
 import Footer from "../../../Components/Footer/Footer";
 import "./VisaStatus.css";
+import { useAuthContext } from "../../../hooks/useAuthContext";
 
 function VisaStatus() {
   const [visas, setVisas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { user } = useAuthContext();
 
   const API_BASE_URL = "http://localhost:5000/api/visa";
 
   const fetchVisas = async () => {
     try {
       setLoading(true);
-      const response = await fetch(API_BASE_URL);
+      const response = await fetch(API_BASE_URL, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
       if (!response.ok) {
         throw new Error("Failed to fetch visa applications");
       }
@@ -28,8 +34,10 @@ function VisaStatus() {
   };
 
   useEffect(() => {
-    fetchVisas();
-  }, []);
+    if (user) {
+      fetchVisas();
+    }
+  }, [user]);
 
   if (loading) {
     return <div>Loading visa applications...</div>;
