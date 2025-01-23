@@ -69,3 +69,8 @@
 .nav-login :hover {
   color: var(--primary-color);
 }
+
+.user-mail {
+  color: #2189ff;
+  font-weight: 500;
+}
