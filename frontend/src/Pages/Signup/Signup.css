@@ -27,7 +27,7 @@
   align-items: center;
 } */
 
-section {
+.signup-page section {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -38,7 +38,7 @@ section {
   background-color: #f5f5f5;
 }
 
-section > div {
+.signup-page section > div {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -49,7 +49,7 @@ section > div {
 }
 
 /* Form container */
-.form-container {
+.signup-page .form-container {
   flex: 1 1 20%;
   background-color: #fff;
   padding: 30px;
@@ -59,25 +59,25 @@ section > div {
   max-width: 500px;
 }
 
-.signup h2 {
+.signup-page .signup h2 {
   margin-bottom: 20px;
   font-size: 1.8rem;
   color: #333;
   text-align: center;
 }
 
-.input-container {
+.signup-page .input-container {
   margin-bottom: 20px;
 }
 
-.input-container label {
+.signup-page .input-container label {
   display: block;
   font-size: 1rem;
   margin-bottom: 8px;
   color: #555;
 }
 
-.input-container input {
+.signup-page .input-container input {
   width: 100%;
   padding: 10px;
   font-size: 1rem;
@@ -85,7 +85,7 @@ section > div {
   border-radius: 4px;
 }
 
-button {
+.signup-page button {
   display: block;
   width: 100%;
   padding: 12px;
@@ -99,11 +99,11 @@ button {
   transition: background-color 0.3s;
 }
 
-button:hover {
+.signup-page button:hover {
   background-color: #0056b3;
 }
 
-.error {
+.signup-page .error {
   color: red;
   background-color: rgb(255, 221, 221);
   padding: 0.2rem;
@@ -116,25 +116,25 @@ button:hover {
 
 /* Responsive styles */
 @media (max-width: 768px) {
-  section {
+  .signup-page section {
     flex-direction: column;
   }
 
-  .img-container {
+  .signup-page .img-container {
     flex: 1 1 100%;
   }
 
-  .form-container {
+  .signup-page .form-container {
     flex: 1 1 100%;
   }
 }
 
 @media (max-width: 480px) {
-  .signup h2 {
+  .signup-page .signup h2 {
     font-size: 1.5rem;
   }
 
-  button {
+  .signup-page button {
     font-size: 0.9rem;
     padding: 10px;
   }

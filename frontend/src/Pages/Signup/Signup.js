@@ -15,7 +15,7 @@ const Signup = () => {
   };
 
   return (
-    <div class="body">
+    <div class="signup-page">
       <Nav />
       <section>
         <div>

@@ -14,7 +14,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div class="login_page">
       <Nav />
       <section>
         <div>
