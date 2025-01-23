@@ -16,7 +16,7 @@ const UserScheme = new Scheme({
 });
 
 //static method to signup user
-UserScheme.statics.login = async function (email, password) {
+UserScheme.statics.signup = async function (email, password) {
   //validation
   if (!email || !password) {
     throw Error("All field must be filled");

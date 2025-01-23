@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import Nav from "../../Components/Navigation/Nav";
 import "./Signup.css";
+import { useSignup } from "../../hooks/useSignup";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { signup, error, isLoading } = useSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(email, password);
+    await signup(email, password);
   };
 
   return (
@@ -38,7 +40,10 @@ const Signup = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <button type="submit">Sign Up</button>
+              <button type="submit" disabled={isLoading}>
+                Sign Up
+              </button>
+              {error && <div class="error">{error}</div>}
             </form>
           </div>
         </div>
