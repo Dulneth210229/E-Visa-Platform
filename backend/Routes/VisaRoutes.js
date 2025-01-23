@@ -2,8 +2,12 @@ const express = require("express");
 const multer = require("multer");
 const path = require("path");
 const VisaController = require("../Controllers/VisaController");
+const requireAuth = require("../middleware/requireAuth");
 
 const visaRouter = express.Router();
+
+//require auth for all workout routes
+visaRouter.use(requireAuth);
 
 // Set up Multer for file uploads
 const storage = multer.diskStorage({
