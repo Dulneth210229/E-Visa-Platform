@@ -13,23 +13,49 @@ function Nav() {
       {/*Navigation bar */}
       <nav class="navbar">
         <div class="nav-content">
-          <div class="logo">
-            <img src={logo} alt="Logo" />
-          </div>
-          <div class="nav-links">
-            <a href="/">
-              <i className="fas fa-home"></i> <span>Home</span>
-            </a>
-            <a href="/add-visa">
-              <i className="fas fa-paper-plane"></i>Apply Now
-            </a>
-            <a href="/visa-status">
-              <i className="fas fa-info-circle"></i>Visa Status
-            </a>
-            <a href="/">
-              <i className="fas fa-question-circle"></i>Help
-            </a>
-          </div>
+          {user && (
+            <>
+              <div class="logo">
+                <img src={logo} alt="Logo" />
+              </div>
+              <div class="nav-links">
+                <a href="/">
+                  <i className="fas fa-home"></i> <span>Home</span>
+                </a>
+                <a href="/add-visa">
+                  <i className="fas fa-paper-plane"></i>Apply Now
+                </a>
+                <a href="/visa-status">
+                  <i className="fas fa-info-circle"></i>Visa Status
+                </a>
+                <a href="/">
+                  <i className="fas fa-question-circle"></i>Help
+                </a>
+              </div>
+            </>
+          )}
+          {!user && (
+            <>
+              <div class="logo">
+                <img src={logo} alt="Logo" />
+              </div>
+              <div class="nav-links">
+                <a href="/login">
+                  <i className="fas fa-home"></i> <span>Home</span>
+                </a>
+                <a href="/login">
+                  <i className="fas fa-paper-plane"></i>Apply Now
+                </a>
+                <a href="/login">
+                  <i className="fas fa-info-circle"></i>Visa Status
+                </a>
+                <a href="/login">
+                  <i className="fas fa-question-circle"></i>Help
+                </a>
+              </div>
+            </>
+          )}
+
           <div class="nav-login">
             {user && (
               <>
