@@ -61,19 +61,15 @@ const VisaSchema = new Schema({
   },
   passportCopy: {
     type: Buffer,
-    required: true,
+    // required: true,
   },
   birthCertificate: {
     type: Buffer,
-    required: true,
+    // required: true,
   },
   policeCertificate: {
     type: Buffer,
-    required: true,
-  },
-  user_id: {
-    type: String,
-    required: true,
+    // required: true,
   },
 });
 

@@ -22,23 +22,12 @@ function App() {
     <div>
       <Router>
         <Routes>
-          {user && (
-            <>
-              <Route
-                path="/"
-                element={user ? <Home /> : <Navigate to="/login" />}
-              />
-              <Route
-                path="/add-visa"
-                element={user ? <AddVisa /> : <Navigate to="/login" />}
-              />
-              <Route
-                path="/visa-status"
-                element={user ? <VisaStatus /> : <Navigate to="/login" />}
-              />
-            </>
-          )}
-          {!user && <></>}
+          <Route
+            path="/"
+            element={user ? <Home /> : <Navigate to="/login" />}
+          />
+          <Route path="/add-visa" element={user ? <AddVisa /> : null} />
+          <Route path="/visa-status" element={user ? <VisaStatus /> : null} />
           <Route
             path="/login"
             element={!user ? <Login /> : <Navigate to="/" />}
