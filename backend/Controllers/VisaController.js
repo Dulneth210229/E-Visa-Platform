@@ -4,10 +4,11 @@ const path = require("path");
 //creating a function to get details
 //display all visas
 const getVisa = async (req, res, next) => {
+  const user_id = req.user._id;
   let visa;
   //get Visa Details
   try {
-    visa = await Visa.find();
+    visa = await Visa.find({ user_id });
   } catch (err) {
     console.log(err);
   }
@@ -41,6 +42,7 @@ const addVisa = async (req, res, next) => {
   const passportCopy = req.files?.passportCopy?.[0]?.path || "";
   const birthCertificate = req.files?.birthCertificate?.[0]?.path || "";
   const policeCertificate = req.files?.policeCertificate?.[0]?.path || "";
+  const user_id = req.user._id;
 
   let visa;
   try {
@@ -62,6 +64,7 @@ const addVisa = async (req, res, next) => {
       passportCopy,
       birthCertificate,
       policeCertificate,
+      user_id,
     });
     await visa.save();
   } catch (err) {

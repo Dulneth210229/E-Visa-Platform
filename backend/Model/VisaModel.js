@@ -9,55 +9,55 @@ const VisaSchema = new Schema({
   },
   lastName: {
     type: String,
-    required: true,
+    // required: true,
   },
   DOB: {
     type: Date,
-    required: true,
+    // required: true,
   },
   email: {
     type: String,
-    required: true,
+    // required: true,
   },
   phoneNumber: {
     type: String,
-    required: true,
+    // required: true,
   },
   country: {
     type: String,
-    required: true,
+    // required: true,
   },
   address: {
     type: String,
-    required: true,
+    // required: true,
   },
   postalCode: {
     type: String,
-    required: true,
+    // required: true,
   },
   visaType: {
     type: String,
-    required: true,
+    // required: true,
   },
   visaDuration: {
     type: String,
-    required: true,
+    // required: true,
   },
   purpose: {
     type: String,
-    required: true,
+    // required: true,
   },
   paymentAmount: {
     type: Number,
-    required: true,
+    // required: true,
   },
   paymentStatus: {
     type: String,
-    required: true,
+    // required: true,
   },
   visaStatus: {
     type: String,
-    required: true,
+    // required: true,
   },
   passportCopy: {
     type: Buffer,
@@ -70,6 +70,10 @@ const VisaSchema = new Schema({
   policeCertificate: {
     type: Buffer,
     // required: true,
+  },
+  user_id: {
+    type: String,
+    required: true,
   },
 });
 
