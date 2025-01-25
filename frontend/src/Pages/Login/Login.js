@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Nav from "../../Components/Navigation/Nav";
 import "./Login.css";
 import { useLogin } from "../../hooks/useLogin";
+import { Link } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,6 +43,14 @@ const Login = () => {
               <button type="submit" disabled={isLoading}>
                 Log in
               </button>
+              <div class="do-not-have-acc">
+                <p>
+                  Don't have an account?{" "}
+                  <Link to="/signup">
+                    <span>click here</span>
+                  </Link>
+                </p>
+              </div>
               {error && <div class="error">{error}</div>}
             </form>
           </div>

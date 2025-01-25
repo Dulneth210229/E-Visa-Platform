@@ -113,7 +113,14 @@
   text-align: center;
   font-weight: 600;
 }
-
+.have-acc {
+  margin-top: 1rem;
+  text-align: center;
+}
+.have-acc span {
+  color: #0056b3;
+  font-weight: 600;
+}
 /* Responsive styles */
 @media (max-width: 768px) {
   .signup-page section {

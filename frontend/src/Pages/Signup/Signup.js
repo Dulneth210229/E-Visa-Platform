@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Nav from "../../Components/Navigation/Nav";
 import "./Signup.css";
 import { useSignup } from "../../hooks/useSignup";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -43,6 +44,14 @@ const Signup = () => {
               <button type="submit" disabled={isLoading}>
                 Sign Up
               </button>
+              <div class="have-acc">
+                <p>
+                  Already have an account ?{" "}
+                  <Link to="/login">
+                    <span>click here</span>
+                  </Link>
+                </p>
+              </div>
               {error && <div class="error">{error}</div>}
             </form>
           </div>
