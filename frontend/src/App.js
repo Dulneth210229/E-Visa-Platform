@@ -14,7 +14,8 @@ import AddVisa from "./Pages/Visa/AddVisa/AddVisa";
 import VisaStatus from "./Pages/Visa/VisaStatus/VisaStatus";
 import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup/Signup";
-import AdminDashboard from "./Pages/Admin/AdminDashboard";
+import AdminDashboard from "./Pages/Admin/Users/AdminDashboard";
+import VisaDetails from "./Pages/Admin/Visas/VisaDetails";
 
 function App() {
   const { user } = useAuthContext();
@@ -40,6 +41,7 @@ function App() {
 
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/visa-details" element={<VisaDetails />} />
         </Routes>
       </Router>
     </div>

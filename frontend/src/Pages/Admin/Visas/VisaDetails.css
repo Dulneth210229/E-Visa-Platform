@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", serif;
+  /* font-weight: 500; */
+  font-style: normal;
+}
+
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #4338ca;
+  --text-color: #1f2937;
+  --gradient-start: #4680e5;
+  --gradient-end: #403aed;
+  --light-color: #f3f4f6;
+}
+/* General Container Styling */
+.visa-container {
+  padding: 30px;
+
+  background: var(--light-color);
+  min-height: 100vh;
+}
+
+.visa-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  padding-top: 50px;
+  margin-bottom: 10px;
+  color: #212121;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Visa Cards Container */
+.visa-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  margin-top: 30px;
+}
+
+/* Visa Card Styling */
+.visa-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.visa-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+
+.visa-card-title {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #0288d1;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+}
+
+.visa-details {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+.visa-details p {
+  margin: 12px 0;
+}
+
+.visa-details strong {
+  color: #212121;
+}
+
+/* Visa Actions (Buttons) */
+.visa-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.confirm-button,
+.delete-button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.confirm-button {
+  background: linear-gradient(45deg, #4caf50, #81c784);
+  color: white;
+}
+
+.confirm-button:hover {
+  background: linear-gradient(45deg, #388e3c, #66bb6a);
+}
+
+.delete-button {
+  background: linear-gradient(45deg, #f44336, #ef5350);
+  color: white;
+}
+
+.delete-button:hover {
+  background: linear-gradient(45deg, #c62828, #e57373);
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+  .visa-container {
+    padding: 20px;
+  }
+
+  .visa-heading {
+    font-size: 2rem;
+  }
+
+  .visa-card {
+    max-width: 100%;
+  }
+
+  .visa-actions {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .visa-heading {
+    font-size: 1.75rem;
+  }
+
+  .visa-card {
+    padding: 20px;
+  }
+
+  .visa-card-title {
+    font-size: 1.6rem;
+  }
+
+  .visa-actions {
+    gap: 15px;
+  }
+}

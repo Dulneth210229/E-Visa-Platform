@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import AdminNav from "../../../Components/AdminNav/Navbar "; // Import the AdminNav component
 import "./AdminDashboard.css"; // Normal CSS styling
 
 const AdminDashboard = () => {
@@ -39,31 +40,35 @@ const AdminDashboard = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="admin-dashboard">
-      <h1>Admin Dashboard</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Email</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <tr key={user._id}>
-              <td>{user.email}</td>
-              <td>
-                <button
-                  className="delete-btn"
-                  onClick={() => handleDelete(user._id)}
-                >
-                  Delete
-                </button>
-              </td>
+    <div>
+      <AdminNav />
+      <div className="admin-dashboard">
+        <h1>User Details</h1>
+        <hr />
+        <table>
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {users.map((user) => (
+              <tr key={user._id}>
+                <td>{user.email}</td>
+                <td class="td-btn-remove">
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(user._id)}
+                  >
+                    Remove User
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
