@@ -6,12 +6,16 @@ const {
   loginUser,
   deleteUser,
   getUserById,
+  getAllUsers,
 } = require("../Controllers/UserController");
 
 const UserRoutes = express.Router();
 
 // Login route
 UserRoutes.post("/login", loginUser);
+
+// Get all users route
+UserRoutes.get("/", getAllUsers);
 
 // Signup route
 UserRoutes.post("/signup", signupUser);

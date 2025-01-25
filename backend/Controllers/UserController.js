@@ -38,6 +38,16 @@ const signupUser = async function (req, res) {
   }
 };
 
+// Get all users
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find().select("-password"); // Exclude sensitive data like password
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 // Get user by ID
 const getUserById = async (req, res) => {
   const { id } = req.params;
@@ -72,4 +82,10 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { signupUser, loginUser, getUserById, deleteUser };
+module.exports = {
+  signupUser,
+  loginUser,
+  getUserById,
+  deleteUser,
+  getAllUsers,
+};
