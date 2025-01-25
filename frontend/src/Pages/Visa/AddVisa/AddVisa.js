@@ -24,6 +24,9 @@ function AddVisa() {
     paymentAmount: "",
     paymentStatus: "",
     visaStatus: "",
+    civilStatus: "",
+    gender: "",
+    education: "",
     passportCopy: null,
     birthCertificate: null,
     policeCertificate: null,
@@ -150,7 +153,12 @@ function AddVisa() {
     }
     if (
       currentSection === 2 &&
-      (!formData.visaType || !formData.visaDuration || !formData.purpose)
+      (!formData.visaType ||
+        !formData.visaDuration ||
+        !formData.purpose ||
+        !formData.civilStatus ||
+        !formData.gender ||
+        !formData.education)
     ) {
       alert("Please fill all required fields in this section.");
       return;
@@ -760,41 +768,53 @@ function AddVisa() {
                       required
                     />
                   </div>
-                  <div class="passport">
-                    <label for="passport">Passport</label>
-                    <input
-                      type="file"
-                      id="passport"
-                      class="file-input"
-                      name="passportCopy"
-                      accept=".pdf,.jpg,.jpeg,.png"
-                      // onChange={handleInputChange}
+
+                  <div class="civilStatus">
+                    <label for="civilStatus">Civil Status</label>
+                    <select
+                      id="civilStatus"
+                      name="civilStatus"
+                      value={formData.civilStatus}
+                      onChange={handleInputChange}
                       required
-                    />
+                    >
+                      <option value="" disabled selected>
+                        Select Status
+                      </option>
+                      <option value="single">Single</option>
+
+                      <option value="married ">Married</option>
+                    </select>
                   </div>
                 </div>
                 <div class="section2-visa">
-                  <div class="birth">
-                    <label for="birth">Birth Certificate</label>
-                    <input
-                      type="file"
-                      id="birth"
-                      class="file-input"
-                      name="birthCertificate"
-                      accept=".pdf,.jpg,.jpeg,.png"
-                      // onChange={handleInputChange}
+                  <div class="gender">
+                    <label for="gender">Gender</label>
+                    <select
+                      id="gender"
+                      name="gender"
+                      value={formData.gender}
+                      onChange={handleInputChange}
                       required
-                    />
+                    >
+                      <option value="" disabled selected>
+                        Select Gender
+                      </option>
+                      <option value="male">Male</option>
+
+                      <option value="female ">Female</option>
+                    </select>
                   </div>
-                  <div class="police">
-                    <label for="police">Police Certificate</label>
+                  <div class="education">
+                    <label for="education">Education</label>
                     <input
-                      type="file"
-                      id="police"
-                      class="file-input"
-                      name="policeCertificate"
-                      // onChange={handleInputChange}
-                      accept=".pdf,.jpg,.jpeg,.png"
+                      type="text"
+                      id="education"
+                      name="education"
+                      class="inputs"
+                      value={formData.education}
+                      onChange={handleInputChange}
+                      required
                     />
                   </div>
                 </div>

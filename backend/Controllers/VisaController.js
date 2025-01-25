@@ -37,6 +37,9 @@ const addVisa = async (req, res, next) => {
     paymentAmount,
     paymentStatus,
     visaStatus,
+    civilStatus,
+    gender,
+    education,
   } = req.body;
 
   const passportCopy = req.files?.passportCopy?.[0]?.path || "";
@@ -65,6 +68,9 @@ const addVisa = async (req, res, next) => {
       birthCertificate,
       policeCertificate,
       user_id,
+      civilStatus,
+      gender,
+      education,
     });
     await visa.save();
   } catch (err) {
@@ -111,6 +117,9 @@ const updateVisa = async (req, res, next) => {
     paymentAmount,
     paymentStatus,
     visaStatus,
+    civilStatus,
+    gender,
+    education,
   } = req.body;
 
   const passportCopy = req.files?.passportCopy?.[0]?.path || "";
@@ -137,6 +146,9 @@ const updateVisa = async (req, res, next) => {
       passportCopy,
       birthCertificate,
       policeCertificate,
+      civilStatus,
+      gender,
+      education,
     });
     await visa.save();
   } catch (err) {

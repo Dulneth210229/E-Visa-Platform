@@ -75,6 +75,18 @@ const VisaSchema = new Schema({
     type: String,
     required: true,
   },
+  civilStatus: {
+    type: String,
+    // required: true,
+  },
+  gender: {
+    type: String,
+    // required: true,
+  },
+  education: {
+    type: String,
+    // required: true,
+  },
 });
 
 module.exports = mongoose.model("visa", VisaSchema);
