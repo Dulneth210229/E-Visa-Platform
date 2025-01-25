@@ -1,14 +1,25 @@
 const express = require("express");
 
-//controller functions
-const { signupUser, loginUser } = require("../Controllers/UserController");
+// Controller functions
+const {
+  signupUser,
+  loginUser,
+  deleteUser,
+  getUserById,
+} = require("../Controllers/UserController");
 
 const UserRoutes = express.Router();
 
-//logic route
+// Login route
 UserRoutes.post("/login", loginUser);
 
-//Signup router
+// Signup route
 UserRoutes.post("/signup", signupUser);
+
+// Get user by ID route
+UserRoutes.get("/:id", getUserById);
+
+// Delete user route
+UserRoutes.delete("/:id", deleteUser);
 
 module.exports = UserRoutes;
