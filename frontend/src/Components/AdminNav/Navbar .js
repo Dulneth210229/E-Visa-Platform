@@ -1,6 +1,8 @@
+import { useLogout } from "../../hooks/useLogout";
 import React from "react";
 
 const Navbar = () => {
+  const { logout } = useLogout();
   return (
     <div>
       <style>
@@ -28,6 +30,9 @@ const Navbar = () => {
         <a href="/admin">Users</a>
         <a href="/visa-details">Visas</a>
         <a href="#summary">Summary</a>
+        <a href="/login" onClick={logout}>
+          Logout
+        </a>
       </div>
     </div>
   );

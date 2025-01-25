@@ -39,6 +39,12 @@ const VisaDetails = () => {
     return <div>Error: {error}</div>;
   }
 
+  // Function to format date to YYYY-MM-DD
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-GB"); // or use "en-US" or custom format
+  };
+
   const handleConfirm = async (id) => {
     try {
       const response = await axios.put(
@@ -83,30 +89,54 @@ const VisaDetails = () => {
                 <h3 className="visa-card-title">
                   {visa.firstName} {visa.lastName}
                 </h3>
+                <hr></hr>
                 <div className="visa-details">
                   <p>
                     <strong>Email:</strong> {visa.email}
+                  </p>
+
+                  <p>
+                    <strong>Date Of Birth:</strong> {formatDate(visa.DOB)}
+                  </p>
+                  <p>
+                    <strong>Contact:</strong> {visa.phoneNumber}
                   </p>
                   <p>
                     <strong>Country:</strong> {visa.country}
                   </p>
                   <p>
+                    <strong>Address:</strong> {visa.address}
+                  </p>
+                  <p>
+                    <strong>Postal Code:</strong> {visa.postalCode}
+                  </p>
+                  <p>
                     <strong>Visa Type:</strong> {visa.visaType}
+                  </p>
+                  <p>
+                    <strong>Visa Duration:</strong> {visa.visaDuration}
+                  </p>
+                  <p>
+                    <strong>Purpose:</strong> {visa.purpose}
+                  </p>
+                  <p>
+                    <strong>Payment Amount:</strong> {visa.paymentAmount}
+                    <span>$</span>
+                  </p>
+                  <p>
+                    <strong>Payment Status:</strong> {visa.paymentStatus}
                   </p>
                   <p>
                     <strong>Visa Status:</strong> {visa.visaStatus}
                   </p>
                   <p>
-                    <strong>Passport Copy:</strong>{" "}
-                    {visa.passportCopy ? "Uploaded" : "Not Uploaded"}
+                    <strong>Civil Status:</strong> {visa.civilStatus}
                   </p>
                   <p>
-                    <strong>Birth Certificate:</strong>{" "}
-                    {visa.birthCertificate ? "Uploaded" : "Not Uploaded"}
+                    <strong>Gender:</strong> {visa.gender}
                   </p>
                   <p>
-                    <strong>Police Certificate:</strong>{" "}
-                    {visa.policeCertificate ? "Uploaded" : "Not Uploaded"}
+                    <strong>Education:</strong> {visa.education}
                   </p>
                 </div>
                 <div className="visa-actions">
