@@ -32,6 +32,7 @@ function AddVisa() {
     policeCertificate: null,
   });
   const [loading, setLoading] = useState(false); // Add loading state
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const navigate = useNavigate(); // Initialize the useNavigate hook
   const [errors, setErrors] = useState({});
   const { user } = useAuthContext();
@@ -45,6 +46,7 @@ function AddVisa() {
       case "firstName":
       case "lastName":
       case "purpose":
+      case "education":
       case "cardName":
         if (/^[A-Za-z\s]*$/.test(value)) {
           updatedErrors[name] = "";
@@ -138,7 +140,7 @@ function AddVisa() {
   const handleNext = () => {
     //Validation logic for the current section
     if (
-      currentSection === 1 &&
+      currentSection === 2 &&
       (!formData.firstName ||
         !formData.lastName ||
         !formData.DOB ||
@@ -152,7 +154,7 @@ function AddVisa() {
       return;
     }
     if (
-      currentSection === 2 &&
+      currentSection === 3 &&
       (!formData.visaType ||
         !formData.visaDuration ||
         !formData.purpose ||
@@ -216,11 +218,11 @@ function AddVisa() {
       );
       alert("Visa details submitted successfully!");
       console.log(response.data);
-
+      setIsFormSubmitted(true); // Mark the form as submitted
       // Redirect to the relevant page
       setTimeout(() => {
-        navigate("/"); // Redirect to the home page
-      }, 2000); // Adjust the time (in ms) for how long you want to show the spinner
+        navigate("/visa-status"); // Redirect to the home page
+      }, 1500); // Adjust the time (in ms) for how long you want to show the spinner
     } catch (error) {
       console.error("Error submitting visa details:", error);
     }
@@ -236,6 +238,42 @@ function AddVisa() {
       <section class="add-visa-form">
         <form class="visa-form" onSubmit={handleSubmit}>
           {currentSection === 1 && (
+            <div class="form-container">
+              <div class="form-section1">
+                <div class="visa-instruction">
+                  <h1>Visa Application Instruction</h1>
+                  <h5>
+                    <span>*</span> Once You applied You can not change your
+                    application details
+                  </h5>
+                  <h5>
+                    <span>*</span> You are required to fill all the fields
+                  </h5>
+                  <h5>
+                    <span>*</span> Once You applied You can not change your
+                    application details
+                  </h5>
+                  <h5>
+                    <span>*</span> You have to pay the visa fee after submitting
+                  </h5>
+                  <h5>
+                    <span>*</span> You can see the status of your visa
+                  </h5>
+                </div>
+                <div class="form-btn">
+                  <button
+                    type="button"
+                    class="next"
+                    onClick={handleNext}
+                    disabled={isFormSubmitted}
+                  >
+                    Next <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+          {currentSection === 2 && (
             <div class="form-container">
               <div class="form-section1">
                 <div class="section1-header">
@@ -706,14 +744,19 @@ function AddVisa() {
                   </div>
                 </div>
                 <div class="form-btn">
-                  <button type="button" class="next" onClick={handleNext}>
+                  <button
+                    type="button"
+                    class="next"
+                    onClick={handleNext}
+                    disabled={isFormSubmitted}
+                  >
                     Next <i class="fa-solid fa-arrow-right"></i>
                   </button>
                 </div>
               </div>
             </div>
           )}
-          {currentSection === 2 && (
+          {currentSection === 3 && (
             <div class="form-container">
               <div class="form-section2">
                 <div class="section2-header">

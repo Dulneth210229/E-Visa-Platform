@@ -81,3 +81,8 @@ section {
   border-right: 1px solid var(--text-color);
   background-color: var(--light-color);
 }
+
+#visa-status-prop {
+  background-color: yellow;
+  font-weight: 600;
+}

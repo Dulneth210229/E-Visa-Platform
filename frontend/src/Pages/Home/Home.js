@@ -3,6 +3,7 @@ import "./Home.css";
 import Nav from "../../Components/Navigation/Nav";
 import map from "./images/map.jpg";
 import Footer from "../../Components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 function Home() {
   useEffect(() => {}, []);
@@ -81,7 +82,9 @@ function Home() {
               Experience a seamless and secure visa application process tailored
               just for you
             </p>
-            <button class="apply2-btn">Apply Now</button>
+            <Link to="/add-visa">
+              <button class="apply2-btn">Apply Now</button>
+            </Link>
             <button class="learn2-btn">Learn More</button>
           </div>
         </div>

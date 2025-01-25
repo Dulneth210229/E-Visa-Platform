@@ -27,18 +27,9 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route
-            path="/"
-            element={user ? <Home /> : <Navigate to="/login" />}
-          />
-          <Route
-            path="/add-visa"
-            element={user ? <AddVisa /> : <Navigate to="/login" />}
-          />
-          <Route
-            path="/visa-status"
-            element={user ? <VisaStatus /> : <Navigate to="/login" />}
-          />
+          <Route path="/" element={user ? <Home /> : null} />
+          <Route path="/add-visa" element={user ? <AddVisa /> : null} />
+          <Route path="/visa-status" element={user ? <VisaStatus /> : null} />
 
           {/* Login Route */}
           <Route

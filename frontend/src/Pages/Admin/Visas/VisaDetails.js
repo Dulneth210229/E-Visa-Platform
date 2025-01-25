@@ -46,33 +46,41 @@ const VisaDetails = () => {
   };
 
   const handleConfirm = async (id) => {
-    try {
-      const response = await axios.put(
-        `http://localhost:5000/api/admin/visa/${id}`,
-        {
-          visaStatus: "Confirmed",
-        }
-      );
-      console.log(response.data);
-      setVisas((prev) =>
-        prev.map((visa) =>
-          visa._id === id ? { ...visa, visaStatus: "Confirmed" } : visa
-        )
-      );
-    } catch (error) {
-      console.error("Error confirming visa:", error);
+    if (
+      window.confirm("Are you sure you want to confirm this visa application?")
+    ) {
+      try {
+        const response = await axios.put(
+          `http://localhost:5000/api/admin/visa/${id}`,
+          {
+            visaStatus: "Confirmed",
+          }
+        );
+        console.log(response.data);
+        setVisas((prev) =>
+          prev.map((visa) =>
+            visa._id === id ? { ...visa, visaStatus: "Confirmed" } : visa
+          )
+        );
+      } catch (error) {
+        console.error("Error confirming visa:", error);
+      }
     }
   };
 
   const handleDelete = async (id) => {
-    try {
-      const response = await axios.delete(
-        `http://localhost:5000/api/admin/visa/${id}`
-      );
-      console.log(response.data);
-      setVisas((prev) => prev.filter((visa) => visa._id !== id));
-    } catch (error) {
-      console.error("Error deleting visa:", error);
+    if (
+      window.confirm("Are you sure you want to delete this visa application?")
+    ) {
+      try {
+        const response = await axios.delete(
+          `http://localhost:5000/api/admin/visa/${id}`
+        );
+        console.log(response.data);
+        setVisas((prev) => prev.filter((visa) => visa._id !== id));
+      } catch (error) {
+        console.error("Error deleting visa:", error);
+      }
     }
   };
 
@@ -115,6 +123,7 @@ const VisaDetails = () => {
                   </p>
                   <p>
                     <strong>Visa Duration:</strong> {visa.visaDuration}
+                    <span> (months)</span>
                   </p>
                   <p>
                     <strong>Purpose:</strong> {visa.purpose}

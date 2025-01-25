@@ -294,3 +294,16 @@ label {
   color: red;
   font-size: 0.8rem;
 }
+
+.visa-instruction {
+  width: 550px;
+  padding: 1rem;
+  background-color: #f3f4f6;
+  margin: 5rem auto 0 auto;
+}
+.visa-instruction h5 {
+  margin-top: 0.5rem;
+}
+.visa-instruction span {
+  color: red;
+}
