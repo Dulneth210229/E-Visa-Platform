@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./AddFiles.css"; // Import the CSS file
+import { useNavigate } from "react-router-dom";
 
 const AddFiles = () => {
   const [files, setFiles] = useState({});
+  const navigate = useNavigate();
 
   const handleFileChange = (e) => {
     setFiles({ ...files, [e.target.name]: e.target.files[0] });
@@ -16,6 +18,7 @@ const AddFiles = () => {
     try {
       await axios.post("http://localhost:5000/api/files/upload", formData);
       alert("Files uploaded successfully!");
+      navigate("/visa-status");
     } catch (error) {
       alert("Failed to upload files");
     }
@@ -23,6 +26,8 @@ const AddFiles = () => {
 
   return (
     <form id="add-files-form" onSubmit={handleSubmit}>
+      <h1>Upload Personal Files</h1> <hr />
+      <br></br>
       <label>Passport Copy :</label>
       <input
         type="file"

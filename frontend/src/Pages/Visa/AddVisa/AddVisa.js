@@ -221,7 +221,7 @@ function AddVisa() {
       setIsFormSubmitted(true); // Mark the form as submitted
       // Redirect to the relevant page
       setTimeout(() => {
-        navigate("/visa-status"); // Redirect to the home page
+        navigate("/add-files"); // Redirect to the home page
       }, 1500); // Adjust the time (in ms) for how long you want to show the spinner
     } catch (error) {
       console.error("Error submitting visa details:", error);
@@ -250,16 +250,24 @@ function AddVisa() {
                     <span>*</span> You are required to fill all the fields
                   </h5>
                   <h5>
-                    <span>*</span> Once You applied You can not change your
-                    application details
+                    <span>*</span> Once You filled all the required fields you
+                    have to pay
+                  </h5>
+                  <h5 style={{ color: "red" }}>
+                    <span>*</span> Once the payment is completed you must upload
+                    the required documents
+                  </h5>
+
+                  <h5>
+                    <span>*</span> Once the documents are uploaded your visa
+                    will be processed
                   </h5>
                   <h5>
-                    <span>*</span> You have to pay the visa fee after submitting
-                  </h5>
-                  <h5>
-                    <span>*</span> You can see the status of your visa
+                    <span>*</span> You can see the status of your visa from the
+                    visa status
                   </h5>
                 </div>
+
                 <div class="form-btn">
                   <button
                     type="button"
