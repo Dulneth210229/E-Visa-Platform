@@ -16,6 +16,8 @@ import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup/Signup";
 import AdminDashboard from "./Pages/Admin/Users/AdminDashboard";
 import VisaDetails from "./Pages/Admin/Visas/VisaDetails";
+import AddFiles from "./Pages/FileInputs/AddFiles";
+import ViewFiles from "./Pages/FileInputs/ViewFiles";
 
 function App() {
   const { user } = useAuthContext();
@@ -27,7 +29,10 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={user ? <Home /> : null} />
+          <Route
+            path="/"
+            element={user ? <Home /> : <Navigate to="/login"></Navigate>}
+          />
           <Route path="/add-visa" element={user ? <AddVisa /> : null} />
           <Route path="/visa-status" element={user ? <VisaStatus /> : null} />
 
@@ -53,6 +58,10 @@ function App() {
             path="/visa-details"
             element={isAdmin ? <VisaDetails /> : null}
           />
+
+          {/* File Uploads */}
+          <Route path="/add-files" element={<AddFiles />} />
+          <Route path="/view-files" element={<ViewFiles />} />
         </Routes>
       </Router>
     </div>

@@ -9,6 +9,7 @@ const path = require("path");
 const visaRouter = require("./Routes/VisaRoutes");
 const UserRouter = require("./Routes/UserRoutes");
 const AdminVisaRoute = require("./Routes/adminVisaRoute");
+const fileRoutes = require("./Routes/fileRoutes");
 
 // Create an Express application
 const app = express();
@@ -19,12 +20,12 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Serve static files (uploaded images, PDFs, etc.)
-app.use("./uploads", express.static(path.join(__dirname, "uploads")));
-
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 //Route handling
 app.use("/api/visa", visaRouter);
 app.use("/api/user", UserRouter);
 app.use("/api/admin/visa", AdminVisaRoute);
+app.use("/api/files", fileRoutes);
 
 // MongoDB Connection using .env file
 const mongoURI = process.env.MONGO_URI; // Fetch the MongoDB URI from .env

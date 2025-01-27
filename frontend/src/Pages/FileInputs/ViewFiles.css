@@ -1,0 +1,97 @@
+/* Main Container Styling */
+#view-files-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Heading Styling */
+#view-files-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* No Files Message Styling */
+#no-files-message {
+  text-align: center;
+  font-size: 18px;
+  color: #777;
+}
+
+/* File Set Styling */
+.file-set {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* File Title Styling */
+.file-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* File Details Styling */
+.file-detail {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.file-detail strong {
+  color: #555;
+}
+
+/* Button Styling */
+.file-button,
+#delete-button {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.file-button {
+  background-color: #007bff;
+  color: white;
+  margin-right: 10px;
+}
+
+.file-button:hover {
+  background-color: #0056b3;
+}
+
+#delete-button {
+  margin-top: 10px;
+  background-color: #ff4d4d;
+  color: white;
+}
+
+#delete-button:hover {
+  background-color: #cc0000;
+}
+
+/* Responsive Styling */
+@media (max-width: 600px) {
+  .file-detail {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .file-button {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}

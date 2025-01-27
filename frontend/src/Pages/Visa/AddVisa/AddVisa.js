@@ -876,7 +876,7 @@ function AddVisa() {
               </div>
             </div>
           )}
-          {currentSection === 3 && (
+          {currentSection === 4 && (
             <div class="form-container">
               <div class="form-section3">
                 <div class="payment-header">
