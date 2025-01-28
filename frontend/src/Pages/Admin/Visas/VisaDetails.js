@@ -67,6 +67,28 @@ const VisaDetails = () => {
       }
     }
   };
+  const handleRefused = async (id) => {
+    if (
+      window.confirm("Are you sure you want to refused this visa application?")
+    ) {
+      try {
+        const response = await axios.put(
+          `http://localhost:5000/api/admin/visa/${id}`,
+          {
+            visaStatus: "Refused",
+          }
+        );
+        console.log(response.data);
+        setVisas((prev) =>
+          prev.map((visa) =>
+            visa._id === id ? { ...visa, visaStatus: "Refused" } : visa
+          )
+        );
+      } catch (error) {
+        console.error("Error refused visa:", error);
+      }
+    }
+  };
 
   const handleDelete = async (id) => {
     if (
@@ -154,6 +176,12 @@ const VisaDetails = () => {
                     onClick={() => handleConfirm(visa._id)}
                   >
                     Confirm
+                  </button>
+                  <button
+                    className="refused-button"
+                    onClick={() => handleRefused(visa._id)}
+                  >
+                    Refused
                   </button>
                   <button
                     className="delete-button"
