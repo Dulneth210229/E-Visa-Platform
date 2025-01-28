@@ -29,7 +29,7 @@ const Navbar = () => {
       <div className="navbar">
         <a href="/admin">Users</a>
         <a href="/visa-details">Visas</a>
-        <a href="#summary">Summary</a>
+        <a href="view-files">Document</a>
         <a href="/login" onClick={logout}>
           Logout
         </a>

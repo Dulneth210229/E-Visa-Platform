@@ -34,10 +34,14 @@
 
 /* File Title Styling */
 .file-title {
-  font-size: 18px;
+  font-size: 1.5rem;
   font-weight: bold;
+  margin-top: ;
   margin-bottom: 10px;
   color: #444;
+}
+.name {
+  color: blue;
 }
 
 /* File Details Styling */

@@ -28,9 +28,6 @@ function Nav() {
                 <a href="/visa-status">
                   <i className="fas fa-info-circle"></i>Visa Status
                 </a>
-                <a href="/">
-                  <i className="fas fa-question-circle"></i>Help
-                </a>
               </div>
             </>
           )}
@@ -48,9 +45,6 @@ function Nav() {
                 </a>
                 <a href="/login">
                   <i className="fas fa-info-circle"></i>Visa Status
-                </a>
-                <a href="/login">
-                  <i className="fas fa-question-circle"></i>Help
                 </a>
               </div>
             </>

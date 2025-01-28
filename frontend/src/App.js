@@ -58,10 +58,10 @@ function App() {
             path="/visa-details"
             element={isAdmin ? <VisaDetails /> : null}
           />
+          <Route path="/view-files" element={isAdmin ? <ViewFiles /> : null} />
 
           {/* File Uploads */}
-          <Route path="/add-files" element={<AddFiles />} />
-          <Route path="/view-files" element={<ViewFiles />} />
+          <Route path="/add-files" element={user ? <AddFiles /> : null} />
         </Routes>
       </Router>
     </div>

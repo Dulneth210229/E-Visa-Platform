@@ -69,102 +69,103 @@ function VisaStatus() {
       <section class="status-section">
         <div>
           {visas.map((visa) => (
-            <div key={visa._id}>
-              {/* <h2>
+            <div>
+              <div key={visa._id}>
+                {/* <h2>
                 {visa.firstName} {visa.lastName}
               </h2> */}
-              <div class="data-container">
-                <div class="data-card-main">
-                  <span class="card-span-text">Visa Status</span>{" "}
-                  <span id="visa-status-prop">{visa.visaStatus}....</span>
-                </div>
-                <div class="data-card-main">
-                  <span class="card-span-text">Payment Status</span>
-                  <span>
-                    {visa.paymentStatus} <i class="fa-solid fa-check"></i>
-                  </span>
-                </div>
-                <div class="data-card-body">
-                  <div class="data-card-body-text">
-                    <div class="data-card-body-text-card">
-                      <span class="span-border">Email </span>
-                      <span>{visa.email}</span>
-                    </div>
-                    <div class="data-card-body-text-card">
-                      <span class="span-border">Date Of Birth: </span>
-                      <span>{formatDate(visa.DOB)}</span>
-                    </div>
-                    <div class="data-card-body-text-card">
-                      <span class="span-border">Contact </span>
-                      <span>{visa.phoneNumber}</span>
-                    </div>
-                    <div class="data-card-body-text-card">
-                      <span class="span-border">Country </span>
-                      <span>{visa.country}</span>
-                    </div>
-                    <div class="data-card-body-text-card">
-                      <span class="span-border">Address </span>
-                      <span>{visa.address}</span>
-                    </div>
-                    <div class="data-card-body-text-card">
-                      <span class="span-border">Postal Code </span>
-
-                      <span>{visa.postalCode}</span>
-                    </div>
-                    <div class="data-card-body-text-card">
-                      <span class="span-border">Visa Type </span>
-
-                      <span>{visa.visaType}</span>
-                    </div>
-                    <div class="data-card-body-text-card">
-                      <span class="span-border">Visa Duration </span>
-
-                      <span>
-                        {visa.visaDuration}
-                        <span> (months)</span>
-                      </span>
-                    </div>
-                    <div class="data-card-body-text-card">
-                      <span class="span-border">Purpose </span>
-
-                      <span>{visa.purpose}</span>
-                    </div>
-                    <div class="data-card-body-text-card">
-                      <span class="span-border">Payment Amount </span>
-
-                      <span>
-                        {visa.paymentAmount}
-                        <span>$</span>
-                      </span>
-                    </div>
-                    <div class="data-card-body-text-card">
-                      <span class="span-border">Payment Status </span>
-
-                      <span>{visa.paymentStatus}</span>
-                    </div>
-                    <div class="data-card-body-text-card">
-                      <span class="span-border">Visa Status </span>
-
-                      <span>{visa.visaStatus}</span>
-                    </div>
-                    <div class="data-card-body-text-card">
-                      <span class="span-border">Civil Status </span>
-
-                      <span>{visa.civilStatus}</span>
-                    </div>
-                    <div class="data-card-body-text-card">
-                      <span class="span-border">Gender </span>
-
-                      <span>{visa.gender}</span>
-                    </div>
-                    <div class="data-card-body-text-card">
-                      <span class="span-border">Education </span>
-
-                      <span>{visa.education}</span>
-                    </div>
+                <div class="data-container">
+                  <div class="data-card-main">
+                    <span class="card-span-text">Visa Status</span>{" "}
+                    <span id="visa-status-prop">{visa.visaStatus}....</span>
                   </div>
+                  <div class="data-card-main">
+                    <span class="card-span-text">Payment Status</span>
+                    <span>
+                      {visa.paymentStatus} <i class="fa-solid fa-check"></i>
+                    </span>
+                  </div>
+                  <div class="data-card-body">
+                    <div class="data-card-body-text">
+                      <div class="data-card-body-text-card">
+                        <span class="span-border">Email </span>
+                        <span>{visa.email}</span>
+                      </div>
+                      <div class="data-card-body-text-card">
+                        <span class="span-border">Date Of Birth: </span>
+                        <span>{formatDate(visa.DOB)}</span>
+                      </div>
+                      <div class="data-card-body-text-card">
+                        <span class="span-border">Contact </span>
+                        <span>{visa.phoneNumber}</span>
+                      </div>
+                      <div class="data-card-body-text-card">
+                        <span class="span-border">Country </span>
+                        <span>{visa.country}</span>
+                      </div>
+                      <div class="data-card-body-text-card">
+                        <span class="span-border">Address </span>
+                        <span>{visa.address}</span>
+                      </div>
+                      <div class="data-card-body-text-card">
+                        <span class="span-border">Postal Code </span>
 
-                  {/* <div class="data-card-body-text">
+                        <span>{visa.postalCode}</span>
+                      </div>
+                      <div class="data-card-body-text-card">
+                        <span class="span-border">Visa Type </span>
+
+                        <span>{visa.visaType}</span>
+                      </div>
+                      <div class="data-card-body-text-card">
+                        <span class="span-border">Visa Duration </span>
+
+                        <span>
+                          {visa.visaDuration}
+                          <span> (months)</span>
+                        </span>
+                      </div>
+                      <div class="data-card-body-text-card">
+                        <span class="span-border">Purpose </span>
+
+                        <span>{visa.purpose}</span>
+                      </div>
+                      <div class="data-card-body-text-card">
+                        <span class="span-border">Payment Amount </span>
+
+                        <span>
+                          {visa.paymentAmount}
+                          <span>$</span>
+                        </span>
+                      </div>
+                      <div class="data-card-body-text-card">
+                        <span class="span-border">Payment Status </span>
+
+                        <span>{visa.paymentStatus}</span>
+                      </div>
+                      <div class="data-card-body-text-card">
+                        <span class="span-border">Visa Status </span>
+
+                        <span>{visa.visaStatus}</span>
+                      </div>
+                      <div class="data-card-body-text-card">
+                        <span class="span-border">Civil Status </span>
+
+                        <span>{visa.civilStatus}</span>
+                      </div>
+                      <div class="data-card-body-text-card">
+                        <span class="span-border">Gender </span>
+
+                        <span>{visa.gender}</span>
+                      </div>
+                      <div class="data-card-body-text-card">
+                        <span class="span-border">Education </span>
+
+                        <span>{visa.education}</span>
+                      </div>
+                    </div>
+
+                    {/* <div class="data-card-body-text">
                     {visa.passportCopy && (
                       <div>
                         <span>Passport Copy:</span> Uploaded
@@ -181,15 +182,18 @@ function VisaStatus() {
                       </div>
                     )}
                   </div> */}
+                  </div>
                 </div>
               </div>
+              <Footer />
             </div>
           ))}
 
-          {visas.length === 0 && <div>You have not applied yet</div>}
+          {visas.length === 0 && (
+            <div class="havent-apply">You have not applied yet</div>
+          )}
         </div>
       </section>
-      <Footer />
     </div>
   );
 }
