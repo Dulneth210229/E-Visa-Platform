@@ -4,9 +4,11 @@ const fs = require("fs");
 
 exports.uploadFiles = async (req, res) => {
   try {
+    const { name } = req.body; // Extract name from request body
     const { passportCopy, birthCertificate, policeCertificate, biodata } =
       req.files;
     const newFile = new File({
+      name,
       passportCopy: passportCopy[0].path,
       birthCertificate: birthCertificate[0].path,
       policeCertificate: policeCertificate[0].path,

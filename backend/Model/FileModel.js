@@ -5,6 +5,7 @@ const fileSchema = new mongoose.Schema({
   birthCertificate: { type: String, required: true },
   policeCertificate: { type: String, required: true },
   biodata: { type: String, required: true },
+  name: { type: String, required: true },
 });
 
 module.exports = mongoose.model("File", fileSchema);
