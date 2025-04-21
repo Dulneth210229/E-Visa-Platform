@@ -51,6 +51,7 @@
 /* Form container */
 .login_page .form-container {
   flex: 1 1 20%;
+  margin-top: 2rem;
   background-color: #fff;
   padding: 30px;
   border-radius: 8px;
