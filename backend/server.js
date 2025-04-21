@@ -40,7 +40,7 @@ mongoose
   });
 
 // Start the server
-const PORT = process.env.PORT || 5000; // Fetch the port from .env or use 5000 as default
+const PORT = process.env.PORT || 6060; // Fetch the port from .env or use 5000 as default
 app.listen(PORT, () => {
   console.log(`Server is running on :${PORT}`);
 });
